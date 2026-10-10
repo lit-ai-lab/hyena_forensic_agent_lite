@@ -1,0 +1,75 @@
+problem: 7
+title: Problems in Vendor Selection and Breach of Contract
+ruleset_version: "2026-10-06.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports|Program Files'
+
+aliases:
+  Lee Ji-su: [Lee Ji-su, Manager Lee Ji-su]
+  Park Yu-jin: [Park Yu-jin, Assistant Manager Park Yu-jin]
+
+answer:
+  text: 'Manager Lee Ji-su approved the selection despite knowing about the discrepancies, and the selected vendor failed to meet the contract terms'
+  note: 'Full credit requires addressing both points requested: the problem with the selection process and Lee Ji-su’s approval despite knowing about it (h1), and the vendor’s failure to meet the contract terms (h2)'
+  criteria:
+    - {id: person, any: ['(?i)\bLee[\s-]*Ji[\s-]*su\b|\bJi[\s-]*su[\s-]*Lee\b']}
+    - {id: counterpart, any: ['(?i)\bPark[\s-]*Yu[\s-]*jin\b|\bYu[\s-]*jin[\s-]*Park\b', '(?i)\bMarketing\s+Team\b']}
+    - {id: vendor, any: ['(?i)\bSix[\s-]*Stor(?:y|ies)\b', '(?i)\bHwang[\s-]*Si[\s-]*mok\b']}
+    - {id: problem, any: ['(?i)\bdiscrepan\w*|\binconsisten\w*|\bmismatch\w*', '(?i)\bdiffer(?:ed|s|ent|ently|ing)?\b', '(?i)\bdifference\w*|\bgap\b|\bvariance\b', '(?i)\bwithout\s+(?:further\s+|proper\s+)?(?:checking|verif\w*|confirm\w*|review\w*)', '(?i)\bapprov\w*\s+(?:it\s+)?as[\s-]*is\b|\bapprov\w*\s+anyway\b', '(?i)\blet\w*\s+(?:it\s+)?slide\b|\boverlook\w*|\bpass(?:ed)?\s+over\b|\bgloss\w*']}
+    - {id: violation, any: ['(?i)\b20\s+comments\b', '(?i)\b200\s+hearts\b', '(?i)\b200\s+likes\b', '(?i)\bnon-?compl\w*|\bnot\s+compl\w*', '(?i)\bnot\s+(?:fulfill\w*|met|deliver\w*|perform\w*)|\bunfulfill\w*|\bfail\w*', '(?i)\bviolat\w*|\bbreach\w*', '(?i)\bguarant\w*|\bpromis\w*']}
+
+evidence:
+  - id: E1
+    label: Lee Ji-su points out discrepancies in the quote
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: &mail '(?i)Backup[_\s]*JISOOLEE\.pst|backup\.pst|\.ost\b|\bmbox\b|readpst|pffexport'
+    text: '(?i)seems?\s+(?:slightly|a\s+(?:little|bit))\s+different|(?:a\s+)?detailed\s+quote\s+or\s+contract'
+
+  - id: E2
+    label: Park Yu-jin’s reply — asking Lee to let it slide · a new vendor · an offer to treat her to a meal
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: *mail
+    text: '(?i)let\s+it\s+slide|new\s+(?:company|vendor|business)|treat\s+you\s+to\s+a\s+nice\s+meal|nice\s+meal'
+
+  - id: E3
+    label: Lee Ji-su proceeds with approval as is
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: *mail
+    text: '(?i)trusting\s+you(?:\s+alone)?[^.]{0,20}approv\w*\s+(?:it\s+)?as[\s-]*is'
+
+  - id: E4
+    label: Six Story quote (identifies the vendor and amount, and specifies the scope of work)
+    reach: REACHABLE
+    path: '(?i)Six[_\s]*Story[_\s]*Quote\.pdf'
+    text: '(?i)20\s+comments|200\s+hearts|reply\s+to\s+every\s+comment|Hwang[\s-]*Si[\s-]*mok|999-04-13187|Total\s*Sum\D{0,8}4,400,000'
+
+  - id: E5
+    label: Metrics from four actual posts
+    reach: REQUIRES_EXTERNAL_LOOKUP
+    lookup: true
+    path: '(?is)(?:web__run|https?://).*instagram|\binsta\s+(?:user|post|search)\b'
+    text: '(?is)hangbok_?cloth.*?(?:likes|hearts|comments)\D{0,12}\d|hangbok_?cloth.*?\d[\d,.]*[KkMm]?\s*(?:likes|comments)\b'
+
+hypotheses:
+  - id: h1
+    label: There were problems with the vendor selection, and Lee Ji-su approved it despite knowing about them
+    conditions:
+      - {id: a, text: "There was a problem with the approval to select Six Story as the Instagram marketing vendor. At least one of the following applies: its quote differed from the existing Instagram marketing arrangement; Assistant Manager Park Yu-jin described it as a new vendor she knew; or she made a favor-seeking request to “let it slide this time.” Other matters, such as Samsaek Fabric, Innovation Button, or the label vendors, do not count"}
+      - {id: b, text: Lee Ji-su knew about the problem (she personally pointed out the discrepancy) and approved it as is without checking further}
+    supported_by: [E1, E2, E3, E4]
+    criteria:
+      - {id: person, anchor: true, any: ['(?i)\bLee[\s-]*Ji[\s-]*su\b|\bJi[\s-]*su[\s-]*Lee\b', '(?i)\bPark[\s-]*Yu[\s-]*jin\b|\bYu[\s-]*jin[\s-]*Park\b']}
+      - {id: problem, anchor: true, any: ['(?i)\bdiscrepan\w*|\binconsisten\w*|\bmismatch\w*', '(?i)\bdiffer(?:ed|s|ent|ently|ing)?\b', '(?i)\bdifference\w*|\bgap\b|\bvariance\b', '(?i)\blet\w*\s+(?:it\s+)?slide\b|\boverlook\w*|\bpass(?:ed)?\s+over\b|\bgloss\w*', '(?i)\bwithout\s+(?:further\s+|proper\s+)?(?:checking|verif\w*|confirm\w*|review\w*)', '(?i)\bapprov\w*\s+(?:it\s+)?as[\s-]*is\b|\bapprov\w*\s+anyway\b']}
+      - {id: target, any: ['(?i)\bquot\w*|\bestimate\w*', '(?i)\bapprov\w*', '(?i)\bvendor\s+selection\b|\bselect\w*\s+(?:the\s+)?vendor\b', '(?i)\bselect\w*']}
+      - {id: awareness, any: ['(?i)\baware\w*|\bnotic\w*|\brecogni[sz]\w*', '(?i)\bknew\b|\bknow\w*|\bknowing\b', '(?i)\bdespite\s+knowing\b|\bknowingly\b|\bwhile\s+knowing\b', '(?i)\bpoint\w*\s+out\b|\bflag\w*|\braised\b|\bnoted\b', '(?i)\bask(?:ed)?\s+(?:for\s+)?(?:confirmation|clarification|verification)\b|\brequest\w*\s+(?:confirmation|verification|clarification)\b', '(?i)\bask\w*|\binquir\w*|\bquestion\w*']}
+      - {id: approval, any: ['(?i)\bapprov\w*', '(?i)\bauthori[sz]\w*|\bsign(?:ed)?[\s-]*off\b|\bendors\w*', '(?i)\bproceed\w*|\bwent\s+ahead\b|\bmov(?:ed|ing)\s+forward\b', '(?i)\bpass(?:ed|es)?\b|\bcleared?\b|\bgreenlight\w*']}
+
+  - id: h2
+    label: The vendor failed to meet the contract terms
+    conditions:
+      - {id: a, text: "The response identifies the terms promised in Six Story’s quote: 20 comments and at least 200 likes per post, with replies to every comment"}
+      - {id: b, text: "The response states as fact that Six Story’s actual Instagram posts fell short of those terms. Merely identifying the promised terms while saying that compliance could not be verified does not satisfy this condition"}
+    supported_by: [E4, E5]
+    criteria:
+      - {id: vendor, anchor: true, any: ['(?i)\bSix[\s-]*Stor(?:y|ies)\b']}
+      - {id: terms, anchor: true, any: ['(?i)\b20\s+comments\b', '(?i)\b200\s+hearts\b', '(?i)\b200\s+likes\b', '(?i)\breplies\b|\breply\b|\bresponses?\b|\brespond\w*', '(?i)\bguarant\w*|\bpromis\w*']}
+      - {id: verdict, any: ['(?i)\bnon-?compl\w*|\bnot\s+compl\w*', '(?i)\bnot\s+(?:fulfill\w*|met|deliver\w*|perform\w*)|\bunfulfill\w*', '(?i)\bviolat\w*|\bbreach\w*', '(?i)\bfail\w*\s+to\s+(?:keep|honou?r|meet|comply|fulfill)\b|\bnot\s+(?:keep|honou?r|kept|honou?red)\b', '(?i)\bdid\s+not\s+(?:meet|keep|comply|fulfill|honou?r)\b|\bnot\s+met\b', '(?i)\bdefault\w*|\bnon-?perform\w*|\bnon-?fulfill\w*', '(?i)\bfell\s+short\b|\bshort\s+of\b|\bbelow\b|\bshortfall\b']}

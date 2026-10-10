@@ -1,0 +1,88 @@
+problem: 3
+title: Improper Use of the Company Credit Card
+ruleset_version: "2026-10-01.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports'
+
+aliases:
+  Jang Guk-ju: [Jang Guk-ju, Team Leader Jang Guk-ju, Team Leader Jang]
+
+answer:
+  text: 'Team Leader Jang Guk-ju used the company credit card for non-business purposes, including at adult entertainment establishments'
+  note: 'Full credit requires giving the type, number, and total amount of the transactions at issue. Citing a specific rule is not required because the original policy is not among the evidence. If the establishment cannot be independently verified as an adult entertainment venue, naming it as “Nine” is sufficient'
+  criteria:
+    - {id: person, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b']}
+    - {id: means, any: ['(?i)\b(?:company|corporate|business)[\s-]*(?:credit[\s-]*)?card\w*', '(?i)\bcard[\s-]*(?:usage|use|used|record\w*|statement\w*|transaction\w*)\b', '(?i)\bcorp(?:orate)?[\s-]*card\b|\bcredit[\s-]*card\w*']}
+    - {id: business_type, any: ['(?i)\bNine\b', '(?i)\badult[\s-]*entertainment\b|\bnightlife\b|\bentertainment\s+(?:venue|establishment|bar)s?\b', '(?i)\broom[\s-]*salon\w*|\bhostess\w*', '(?i)\bkaraoke\s+bar\w*|\bdanran\b|\bentertainment\s+pub\w*']}
+    - {id: amount, any: ['1,?189,?000', '1,?285,?950', '245,?000', '556,?000', '388,?000']}
+    - {id: judgment, any: ['(?i)\bimproper\w*|\binappropriate\w*|\bunjust\w*|\bunauthori[sz]ed\b', '(?i)\bpersonal\w*|\bprivate\b', '(?i)\bnon-?(?:business|work)\b|\bunrelated\s+to\s+(?:the\s+)?(?:work|business)\b|\bnot\s+(?:work|business)[\s-]*related\b', '(?i)\bviolat\w*|\bbreach\w*', '(?i)\bmisus\w*|\bmisappropriat\w*|\bembezzl\w*', '(?i)\bnot\s+(?:legitimate|appropriate|proper)\b']}
+
+evidence:
+  -
+    id: E1
+    label: Three transactions at the adult entertainment venue “Nine” (two made after 11 p.m.)
+    reach: REACHABLE_AFTER_BINARY_PARSE
+    path: '(?i)Company[_\s]*Credit[_\s]*Card[_\s]*Usage[_\s]*History'
+    text: '(?i)120-12-45696|245,000[^A-Za-z]{1,60}Nine|556,000|388,000|2020\.02\.28\D{1,15}231560|2020\.07\.01\D{1,15}231308'
+
+  - id: E2
+    label: Confirmation that “Nine” is an adult entertainment venue
+    reach: REQUIRES_EXTERNAL_LOOKUP
+    path: '(?i)Company[_\s]*Credit[_\s]*Card[_\s]*Usage[_\s]*History'
+    text: '120-12-45696'
+
+  - id: E3
+    label: Four card transactions during vacation
+    reach: REACHABLE_AFTER_BINARY_PARSE
+    path: '(?i)Company[_\s]*Credit[_\s]*Card[_\s]*Usage[_\s]*History'
+    text: '(?i)2020\.12\.(?:24[^\dA-Za-z]{1,20}Thu(?:rsday)?|28[^\dA-Za-z]{1,20}Mon(?:day)?|29[^\dA-Za-z]{1,20}Tue(?:sday)?|30[^\dA-Za-z]{1,20}Wed(?:nesday)?)'
+
+  - id: E4
+    label: December 2020 work log
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)December[_\s]*Work[_\s]*Log\.xlsx'
+    text: '(?i)202012(?:24|28|29|30)\D{1,12}Vacation'
+
+hypotheses:
+  - id: h1
+    label: Suspicious transactions were identified in the card records
+    conditions:
+      - {id: a, text: The transactions at issue were identified individually in the company card records by merchant, date and time, and amount}
+      - {id: b, text: At least one identified transaction was either a payment at the adult entertainment venue “Nine” or a payment made during vacation (2020-12-24 through 2020-12-30)}
+    supported_by: [E1, E3]
+    criteria:
+      - {id: target, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b']}
+      - {id: material, anchor: true, any: ['(?i)\b(?:company|corporate|business)[\s-]*(?:credit[\s-]*)?card\w*', '(?i)\busage[\s-]*(?:history|record\w*|detail\w*)\b|\btransaction[\s-]*(?:history|record\w*)\b', '(?i)\bcard[\s-]*(?:usage|use|used|record\w*|statement\w*|transaction\w*)\b', '(?i)\bcorp(?:orate)?[\s-]*card\b|\bcredit[\s-]*card\w*']}
+      - {id: action, any: ['(?i)\bsuspicious\w*|\babnormal\w*|\banomal\w*|\bunusual\w*', '(?i)\bsuspect\w*|\bsuspicion\w*', '(?i)\binappropriate\w*|\bimproper\w*', '(?i)\bproblem\w*|\bissue\w*|\bquestionable\b', '(?i)\bidentif\w*|\bspecif\w*|\bpinpoint\w*', '(?i)\bextract\w*', '(?i)\bselect\w*|\bfilter\w*|\bflag\w*|\bsingl\w*\s+out\b']}
+
+  - id: h2
+    label: The company credit card was used at an adult entertainment venue
+    conditions:
+      - {id: a, text: The company credit card was used to pay at “Nine” in three transactions (2020-02-28, 2020-07-01, and 2020-11-20). “Sushi Nine” does not count}
+      - {id: b, text: 'The response states as fact that “Nine” is an adult entertainment venue (such as a room salon or other adult entertainment establishment). Speculative wording such as “suspected” or “possibly” does not satisfy this condition'}
+    supported_by: [E1, E2]
+    criteria:
+      - {id: business_type, anchor: true, any: ['(?i)\bNine\b', '(?i)\badult[\s-]*entertainment\b|\bnightlife\b|\bentertainment\s+(?:venue|establishment|bar)s?\b', '(?i)\broom[\s-]*salon\w*|\bhostess\w*', '(?i)\bkaraoke\s+bar\w*|\bdanran\b|\bentertainment\s+pub\w*']}
+      - {id: usage, any: ['(?i)\bused\b|\buse\b|\busage\b|\busing\b', '(?i)\bpa(?:y|id|ying|yment\w*)\b', '(?i)\bspen[dt]\w*|\bexpens\w*|\bspending\b', '(?i)\bapprov\w*|\bcharg\w*|\bswipe\w*']}
+      - {id: amount, any: ['245,?000', '556,?000', '388,?000', '1,?189,?000']}
+
+  - id: h3
+    label: The number and total amount of the transactions at issue were given
+    conditions:
+      - {id: a, text: The seven transactions at issue consist of three transactions at Nine (adult entertainment) and four transactions during vacation. A different set of seven transactions—for example, seven high-value transactions after 6 p.m.—does not count}
+      - {id: b, text: 'The total for those seven transactions was stated as KRW 1,285,950. Giving the subtotals as well (three Nine transactions totaling KRW 1,189,000 and four vacation-period transactions totaling KRW 96,950) is acceptable. Stating KRW 1,189,000 as the total for all seven, when it is only the subtotal for the three Nine transactions, or giving a different total does not count'}
+    supported_by: [E1, E3]
+    criteria:
+      - {id: amount, anchor: true, any: ['1,?189,?000', '1,?285,?950']}
+      - {id: count, any: ['(?i)\b(?:7|seven)\s+(?:transactions?|cases?|charges?|payments?|items?)\b', '(?i)\b(?:3|three)\s+(?:transactions?|cases?|charges?|payments?|items?)\b', '(?i)\bseven\b']}
+      - {id: total, any: ['(?i)\btotal(?:s|ed|ing)?\b|\bsum(?:med)?\b', '(?i)\btotal\s+amount\b|\bgrand\s+total\b', '(?i)\btotal\s+(?:sum|value|cost)\b', '(?i)\bcombined\b|\baltogether\b|\bin\s+total\b|\bin\s+all\b', '(?i)\bcumulative\b|\baggregate\w*|\bsubtotal\w*|\brunning\s+total\b']}
+
+  - id: h4
+    label: The company credit card was used during vacation
+    conditions:
+      - {id: a, text: Specific company credit card transactions during the vacation period (2020-12-24, 28, 29, and 30) were identified}
+      - {id: b, text: The response states as fact that those dates fell during vacation, as recorded in the work log}
+    supported_by: [E3, E4]
+    criteria:
+      - {id: period, anchor: true, any: ['(?i)\bvacation\w*|\bholiday\w*', '(?i)\bannual\s+leave\b|\bleave\b|\btime\s+off\b|\bPTO\b|\bday\s+off\b', '(?i)\bDec(?:ember)?\.?\s*2[4-9]\b|\b12\s*[/.\-]\s*2[4-9]\b', '(?i)\bDec(?:ember)?\.?\s*30\b|\b12\s*[/.\-]\s*30\b']}
+      - {id: usage, any: ['(?i)\bused\b|\buse\b|\busage\b|\busing\b', '(?i)\bpa(?:y|id|ying|yment\w*)\b', '(?i)\bspen[dt]\w*|\bexpens\w*|\bspending\b']}
+      - {id: amount, any: ['96,?950', '19,?400', '10,?200', '43,?350', '24,?000']}

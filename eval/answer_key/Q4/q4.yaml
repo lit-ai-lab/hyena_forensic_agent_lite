@@ -1,0 +1,66 @@
+problem: 4
+title: Transaction After Unilaterally Altering a Supplier Quote
+ruleset_version: "2026-10-02.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports'
+
+aliases:
+  Kang Su-min: [Kang Su-min, Assistant Manager Kang Su-min, HB_sumin]
+  Park Yong-jun: [Park Yong-jun, Manager Park Yong-jun]
+
+answer:
+  text: 'Assistant Manager Kang Su-min altered a supplier’s quote without authorization, shared the altered quote internally, and used it in a transaction'
+  note: 'For Innovation Button’s African horn buttons, the unit price was changed from KRW 1,500 to KRW 1,700'
+  criteria:
+    - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+    - {id: target,   any: ['(?i)\bquot\w*|\bestimate\w*', '(?i)\bunit[\s-]*price\w*|\bprice\w*', '(?i)\bquotation\w*|\bquote\s+(?:sheet|document)\b']}
+    - {id: action,   any: ['(?i)\bwithout\s+(?:authori[sz]ation|permission|approval|consent)\b|\bunilateral\w*|\barbitrar\w*|\bunauthori[sz]ed\b', '(?i)\brevis\w*|\bedit\w*|\bmodif\w*|\bamend\w*|\bcorrect\w*', '(?i)\balter\w*|\btamper\w*|\bfalsif\w*|\bforg\w*', '(?i)\bmanipulat\w*|\bdoctor\w*|\bfabricat\w*', '(?i)\braise[sd]?\b|\braising\b', '(?i)\bincreas\w*|\bmark(?:ed|ing)?[\s-]*up\b|\bhik\w*|\binflat\w*', '(?i)\bchang\w*|\bswitch\w*|\breplac\w*|\bswap\w*']}
+    - {id: vendor,   any: ['(?i)\bInnovation[\s-]*Button\w*', '(?i)\bPark[\s-]*Yong[\s-]*jun\b|\bYong[\s-]*jun[\s-]*Park\b']}
+    - {id: figure,   any: ['1,?500', '1,?700', '2,?900', '2,?100', '(?i)\b200\s*(?:won|KRW)\b|\bKRW\s*200\b']}
+
+evidence:
+  - id: E1
+    label: Quote received from Innovation Button
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: &mail '(?i)HB_sumin[\\/].*backup\.pst|backup\.pst|Backup[_\s]*JISOOLEE\.pst|\bmbox\b|readpst|pffexport'
+    text: '(?i)(?<![\d,])(?:KRW\s*2,700(?!,?\d)|2,700\s*(?:won|KRW)\b)'
+
+  - id: E2
+    label: Unit price changed when shared internally
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: *mail
+    text: '(?i)KRW\s*(?:2,900|2,100)(?!,?\d)|(?<![\d,])(?:2,900|2,100)\s*(?:won|KRW)\b'
+
+  - id: E3
+    label: Supplier asked to proceed at the original price
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: *mail
+    text: '(?i)is\s+(?:KRW\s*)?1,500\s*(?:won|KRW)?\s*correct|unit\s+price\s*(?:of\s*)?(?:KRW\s*)?1,500'
+
+  - id: E4
+    label: Transaction statement reflects the altered price
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: *mail
+    text: '(?i)sending\s+(?:you\s+)?the\s+transaction\s+detail\s+sheet'
+
+hypotheses:
+  - id: h1
+    label: The quote was altered without authorization and shared internally
+    conditions:
+      - {id: a, text: 'Kang Su-min unilaterally increased the unit price in a quote from Innovation Button, a supplier (Park Yong-jun), for example, changing the 15 mm item from KRW 1,500 to KRW 1,700—a KRW 200 increase. Altering quotes from other suppliers, such as Mujisesang, Cocomade, or Samsaek Fabric, does not count'}
+      - {id: b, text: The altered quote was shared or reported internally (within the team)}
+    supported_by: [E1, E2, E3]
+    criteria:
+      - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+      - {id: action,   anchor: true, any: ['(?i)\bwithout\s+(?:authori[sz]ation|permission|approval|consent)\b|\bunilateral\w*|\barbitrar\w*|\bunauthori[sz]ed\b', '(?i)\brevis\w*|\bedit\w*|\bmodif\w*|\bamend\w*|\bcorrect\w*', '(?i)\balter\w*|\btamper\w*|\bfalsif\w*|\bforg\w*', '(?i)\bmanipulat\w*|\bdoctor\w*|\bfabricat\w*', '(?i)\braise[sd]?\b|\braising\b', '(?i)\bincreas\w*|\bmark(?:ed|ing)?[\s-]*up\b|\bhik\w*|\binflat\w*', '(?i)\bchang\w*|\bswitch\w*|\breplac\w*|\bswap\w*']}
+      - {id: target,   anchor: true, any: ['(?i)\bquot\w*|\bestimate\w*', '(?i)\bunit[\s-]*price\w*|\bprice\w*']}
+      - {id: sharing,   any: ['(?i)\binternal\w*', '(?i)\bforward\w*|\bdeliver\w*|\bpass(?:ed)?\s+(?:on|along)\b', '(?i)\bshar(?:e|ed|es|ing)\b', '(?i)\breport\w*', '(?i)\bteam\w*', '(?i)\brepl(?:y|ied|ies)\b|\brespon(?:ded|se)\b', '(?i)\b(?:sent|send|sends|sending)\b']}
+
+  - id: h2
+    label: A transaction was completed using the altered quote
+    conditions:
+      - {id: a, text: A transaction was completed with Innovation Button, evidenced by a transaction statement, purchase order, or delivery. Transactions with other suppliers do not count}
+      - {id: b, text: "The unit price in that transaction was the altered price (KRW 1,700)"}
+    supported_by: [E4]
+    criteria:
+      - {id: transaction, anchor: true, any: ['(?i)\btransaction\s+statement\w*', '(?i)\bdetail\s+sheet\w*|\bstatement\w*|\binvoice\w*', '(?i)\bactual\s+(?:transaction|trade|purchase)\w*|\btransaction\s+(?:actually\s+)?(?:took\s+place|occurred|was\s+(?:completed|carried\s+out|made))\b', '(?i)\bpurchase\s+order\w*|\bPO\b|\bplaced\s+(?:an\s+)?order\b', '(?i)\border(?:ed|s)?\b', '(?i)\bdeliver\w*']}
+      - {id: unit_price, any: ['1,?700']}

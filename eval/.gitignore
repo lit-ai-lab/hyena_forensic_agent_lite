@@ -1,0 +1,28 @@
+.env
+/data
+/output
+/output_oss
+__pycache__
+.venv/
+/uploads
+.claude
+/data_archive
+# gate0 cache (extracted pst/ost)
+src/utils/.mailcache/
+/old_data
+/new_data
+/new_output
+.mailcache
+.mailcache
+/old_output
+/old_docs
+/old_data_0929
+/docs/Answer_Report_EN
+# Public copies of data and output, and their zips
+/codex_40_run_data
+/golden_data
+/outputs
+/error_data
+/01_forensic_agent_lite_data_261009
+/01_forensic_agent_lite_data_261009_output
+/HYENA_CTF

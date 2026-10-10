@@ -1,0 +1,57 @@
+<svg viewBox="0 0 1008 388" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Answer structure for Question 7 - evidence, claim, and conclusion layers" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7887"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A6209"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E5BB5"/></marker></defs>
+<path d="M314,58 C357,58 357,160 400,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,126 C357,126 357,160 400,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,160 400,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,160 400,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,228 400,228" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,330 C357,330 357,228 400,228" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,160 C723,160 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,228 C723,228 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="34" y="34" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E1</text>
+<text x="78" y="53" font-size="11.5" fill="#171C23">Lee Ji-su flagged discrepancies</text>
+<text x="78" y="68" font-size="9.5" fill="#6B7887">2/1 15:06</text>
+<text x="304" y="53" text-anchor="end" font-size="9" fill="#8A97A5">PST extract</text>
+<rect x="34" y="102" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E2</text>
+<text x="78" y="121" font-size="11.5" fill="#171C23">Park Yu-jin's reply (2/1 15:35)</text>
+<text x="78" y="136" font-size="9.5" fill="#6B7887">"Let it slide this once" · new company · meal offer</text>
+<text x="304" y="121" text-anchor="end" font-size="9" fill="#8A97A5">PST extract</text>
+<rect x="34" y="170" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E3</text>
+<text x="78" y="189" font-size="11.5" fill="#171C23">Lee Ji-su approved it anyway</text>
+<text x="78" y="204" font-size="9.5" fill="#6B7887">2/1 16:24</text>
+<text x="304" y="189" text-anchor="end" font-size="9" fill="#8A97A5">PST extract</text>
+<rect x="34" y="238" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E4</text>
+<text x="78" y="257" font-size="11.5" fill="#171C23">Six Story quotation</text>
+<text x="78" y="269" font-size="9.5" fill="#6B7887">Names the vendor and amount</text>
+<text x="78" y="280" font-size="9.5" fill="#6B7887">Promises 20 comments and 200 likes per post</text>
+<rect x="34" y="306" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E5</text>
+<text x="78" y="325" font-size="11.5" fill="#171C23">Figures from four actual posts</text>
+<text x="78" y="340" font-size="9.5" fill="#6B7887">All fell short of the terms</text>
+<text x="304" y="325" text-anchor="end" font-size="9" fill="#8A97A5">External lookup</text>
+<rect x="400" y="136" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="155" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C1</text>
+<text x="444" y="155" font-size="11.5" fill="#171C23">Lee knowingly approved a flawed selection</text>
+<text x="444" y="170" font-size="9.5" fill="#6B7887">Quotation mismatch · new company · plea for leniency</text>
+<rect x="400" y="204" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="223" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C2</text>
+<text x="444" y="223" font-size="11.5" fill="#171C23">The vendor breached the contract</text>
+<text x="444" y="238" font-size="9.5" fill="#6B7887">Comments, replies, and likes all fell short</text>
+<rect x="766" y="114" width="208" height="162" rx="9" fill="var(--ans-bg,#F8E6ED)" stroke="var(--ans,#9E2B58)" stroke-width="1.8"/>
+<text x="870" y="134" text-anchor="middle" font-family="monospace" font-size="9.5" fill="var(--ans,#9E2B58)">Conclusion A</text>
+<text x="870" y="156" text-anchor="middle" font-size="11.5" fill="#171C23">Manager Lee Ji-su approved the</text>
+<text x="870" y="174" text-anchor="middle" font-size="11.5" fill="#171C23">selection knowing about the</text>
+<text x="870" y="192" text-anchor="middle" font-size="11.5" fill="#171C23">discrepancies, and the selected</text>
+<text x="870" y="210" text-anchor="middle" font-size="11.5" fill="#171C23">vendor failed to meet the</text>
+<text x="870" y="228" text-anchor="middle" font-size="11.5" fill="#171C23">contract terms</text>
+<line x1="780" y1="240" x2="960" y2="240" stroke="var(--ans,#9E2B58)" stroke-width="1" opacity=".3"/>
+<text x="870" y="256" text-anchor="middle" font-size="9.5" fill="#6B7887">Full credit requires addressing both</text>
+<text x="870" y="269" text-anchor="middle" font-size="9.5" fill="#6B7887">points the question asks about</text>
+<text x="34" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Evidence E</text>
+<text x="400" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Claim C</text>
+<text x="766" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Conclusion A</text>
+</svg>

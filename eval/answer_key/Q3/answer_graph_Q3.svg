@@ -1,0 +1,65 @@
+<svg viewBox="0 0 1008 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Answer structure for Question 3 - evidence, claim, and conclusion layers" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7887"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A6209"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E5BB5"/></marker></defs>
+<path d="M314,58 C357,58 357,58 400,58" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,58 400,58" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,126 400,126" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,126 C357,126 357,126 400,126" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,58 C723,58 723,160 766,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,126 C723,126 723,160 766,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,194 C723,194 723,160 766,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,262 C723,262 723,160 766,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="34" y="34" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E1</text>
+<text x="78" y="53" font-size="11.5" fill="#171C23">3 charges at adult venue 'Nine'</text>
+<text x="78" y="68" font-size="9.5" fill="#6B7887">2 of them after 11 p.m. · total KRW 1,189,000</text>
+<text x="304" y="53" text-anchor="end" font-size="9" fill="#8A97A5">Binary parse</text>
+<rect x="34" y="102" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E2</text>
+<text x="78" y="121" font-size="11.5" fill="#171C23">'Nine' is an adult venue</text>
+<text x="78" y="136" font-size="9.5" fill="#6B7887">Confirmed as a room salon</text>
+<text x="304" y="121" text-anchor="end" font-size="9" fill="#8A97A5">External lookup</text>
+<rect x="34" y="170" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E3</text>
+<text x="78" y="189" font-size="11.5" fill="#171C23">4 charges during vacation</text>
+<text x="78" y="204" font-size="9.5" fill="#6B7887">12/24 · 28 · 29 · 30 · total KRW 96,950</text>
+<text x="304" y="189" text-anchor="end" font-size="9" fill="#8A97A5">Binary parse</text>
+<rect x="34" y="238" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E4</text>
+<text x="78" y="257" font-size="11.5" fill="#171C23">December 2020 work log</text>
+<text x="78" y="272" font-size="9.5" fill="#6B7887">Vacation: 12/24–12/30</text>
+<text x="304" y="257" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="400" y="34" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C1</text>
+<text x="444" y="53" font-size="11.5" fill="#171C23">Suspicious transactions identified</text>
+<text x="444" y="65" font-size="9.5" fill="#6B7887">The policy text is not in the evidence,</text>
+<text x="444" y="76" font-size="9.5" fill="#6B7887">so no violation ruling is required</text>
+<rect x="400" y="102" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C2</text>
+<text x="444" y="121" font-size="11.5" fill="#171C23">Company card used at an adult venue</text>
+<rect x="400" y="170" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C3</text>
+<text x="444" y="189" font-size="11.5" fill="#171C23">Seven problem transactions in total</text>
+<text x="444" y="201" font-size="9.5" fill="#6B7887">KRW 1,285,950 = 1,189,000 (3 venue charges)</text>
+<text x="444" y="212" font-size="9.5" fill="#6B7887">+ 96,950 (4 vacation charges)</text>
+<rect x="400" y="238" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C4</text>
+<text x="444" y="257" font-size="11.5" fill="#171C23">Company card used while on vacation</text>
+<rect x="766" y="76" width="208" height="170" rx="9" fill="var(--ans-bg,#F8E6ED)" stroke="var(--ans,#9E2B58)" stroke-width="1.8"/>
+<text x="870" y="96" text-anchor="middle" font-family="monospace" font-size="9.5" fill="var(--ans,#9E2B58)">Conclusion A</text>
+<text x="870" y="118" text-anchor="middle" font-size="11.5" fill="#171C23">Team Leader Jang Guk-ju used</text>
+<text x="870" y="136" text-anchor="middle" font-size="11.5" fill="#171C23">the company card for non-business</text>
+<text x="870" y="154" text-anchor="middle" font-size="11.5" fill="#171C23">purposes, including at an adult</text>
+<text x="870" y="172" text-anchor="middle" font-size="11.5" fill="#171C23">entertainment venue</text>
+<line x1="780" y1="184" x2="960" y2="184" stroke="var(--ans,#9E2B58)" stroke-width="1" opacity=".3"/>
+<text x="870" y="200" text-anchor="middle" font-size="9.5" fill="#6B7887">Full credit requires the type, number,</text>
+<text x="870" y="213" text-anchor="middle" font-size="9.5" fill="#6B7887">and total of the problem transactions.</text>
+<text x="870" y="226" text-anchor="middle" font-size="9.5" fill="#6B7887">The policy text is not in the evidence,</text>
+<text x="870" y="239" text-anchor="middle" font-size="9.5" fill="#6B7887">so citing a clause is not required</text>
+<text x="34" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Evidence E</text>
+<text x="400" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Claim C</text>
+<text x="766" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Conclusion A</text>
+</svg>

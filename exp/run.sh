@@ -1,7 +1,6 @@
 #!/bin/bash
 # Usage (from the repo root): bash exp/run.sh <model> <name> [reps=5] [jobs=4]
 #   e.g. bash exp/run.sh openai/gpt-oss-20b high
-#        CFG=model.model_kwargs.reasoning_effort=low bash exp/run.sh openai/gpt-oss-20b low
 # Output: runs/<model>/<name>/q<task>/r<rep>.traj.json and .log. Finished runs are skipped when run again.
 set -u
 export MODEL=$1 OUT="runs/${1//\//_}/$2"
@@ -15,7 +14,7 @@ run_one() {
         return
     fi
     echo "start q$q r$r  $(date +%T)"
-    mini -c exp/case.yaml ${CFG:+-c "$CFG"} -m "hosted_vllm/$MODEL" -t "$(tr -d '\r' < "exp/tasks/q$q.md")" -o "$f" > "${f%.traj.json}.log" 2>&1
+    mini -c exp/case.yaml -m "hosted_vllm/$MODEL" -t "$(tr -d '\r' < "exp/tasks/q$q.md")" -o "$f" > "${f%.traj.json}.log" 2>&1
     echo "end   q$q r$r  $(date +%T)"
 }
 export -f run_one

@@ -1,0 +1,60 @@
+<svg viewBox="0 0 1008 388" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Answer structure for Question 8 - evidence, claim, and conclusion layers" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7887"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A6209"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E5BB5"/></marker></defs>
+<path d="M314,58 C357,58 357,126 400,126" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,330 C357,330 357,126 400,126" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,126 C357,126 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,126 C723,126 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,194 C723,194 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,262 C723,262 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="34" y="34" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E1</text>
+<text x="78" y="53" font-size="11.5" fill="#171C23">Lee Dong-geun–Kang Su-min chat</text>
+<text x="78" y="65" font-size="9.5" fill="#6B7887">One year his senior · after the rooftop incident:</text>
+<text x="78" y="76" font-size="9.5" fill="#6B7887">"This relieves my stress"</text>
+<rect x="34" y="102" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E2</text>
+<text x="78" y="121" font-size="11.5" fill="#171C23">Parking lot errand</text>
+<text x="78" y="136" font-size="9.5" fill="#6B7887">Called him down to move a car</text>
+<rect x="34" y="170" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E3</text>
+<text x="78" y="189" font-size="11.5" fill="#171C23">Go Su-bong–Kang Su-min chat</text>
+<text x="78" y="201" font-size="9.5" fill="#6B7887">Cigarette and coffee errands · asked for a discount</text>
+<text x="78" y="212" font-size="9.5" fill="#6B7887">at his family's sushi restaurant</text>
+<rect x="34" y="238" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E4</text>
+<text x="78" y="257" font-size="11.5" fill="#171C23">Work dumped on Go Su-bong</text>
+<text x="78" y="269" font-size="9.5" fill="#6B7887">A task the team leader gave her was passed</text>
+<text x="78" y="280" font-size="9.5" fill="#6B7887">on to him without a separate report</text>
+<rect x="34" y="306" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E5</text>
+<text x="78" y="325" font-size="11.5" fill="#171C23">Refusal to cover work during leave</text>
+<rect x="400" y="102" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C1</text>
+<text x="444" y="121" font-size="11.5" fill="#171C23">She used her position of superiority</text>
+<text x="444" y="136" font-size="9.5" fill="#6B7887">Element 1</text>
+<rect x="400" y="170" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C2</text>
+<text x="444" y="189" font-size="11.5" fill="#171C23">Exceeded the reasonable scope of work</text>
+<text x="444" y="204" font-size="9.5" fill="#6B7887">Element 2</text>
+<rect x="400" y="238" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C3</text>
+<text x="444" y="257" font-size="11.5" fill="#171C23">Caused distress and soured the workplace</text>
+<text x="444" y="272" font-size="9.5" fill="#6B7887">Element 3</text>
+<rect x="766" y="125" width="208" height="139" rx="9" fill="var(--ans-bg,#F8E6ED)" stroke="var(--ans,#9E2B58)" stroke-width="1.8"/>
+<text x="870" y="145" text-anchor="middle" font-family="monospace" font-size="9.5" fill="var(--ans,#9E2B58)">Conclusion A</text>
+<text x="870" y="167" text-anchor="middle" font-size="11.5" fill="#171C23">Assistant Manager Kang Su-min's</text>
+<text x="870" y="185" text-anchor="middle" font-size="11.5" fill="#171C23">conduct meets all three elements</text>
+<text x="870" y="203" text-anchor="middle" font-size="11.5" fill="#171C23">of workplace harassment</text>
+<line x1="780" y1="215" x2="960" y2="215" stroke="var(--ans,#9E2B58)" stroke-width="1" opacity=".3"/>
+<text x="870" y="231" text-anchor="middle" font-size="9.5" fill="#6B7887">Full credit requires supporting each</text>
+<text x="870" y="244" text-anchor="middle" font-size="9.5" fill="#6B7887">of the three elements and tying</text>
+<text x="870" y="257" text-anchor="middle" font-size="9.5" fill="#6B7887">them together</text>
+<text x="34" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Evidence E</text>
+<text x="400" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Claim C</text>
+<text x="766" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Conclusion A</text>
+</svg>

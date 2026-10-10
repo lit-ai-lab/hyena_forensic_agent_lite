@@ -1,0 +1,95 @@
+problem: 6
+title: Accepting Hospitality and Manipulating Bid Evaluation Scores
+ruleset_version: "2026-10-02.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports'
+
+aliases:
+  Lee Ji-su: [Lee Ji-su, Manager Lee Ji-su]
+  Gu Min-su: [Gu Min-su, President Gu]
+
+answer:
+  text: 'Manager Lee Ji-su accepted money and hospitality from Gu Min-su, then changed the evaluation in favor of Suajaju'
+  note: 'Full credit requires tying together all three points: Lee Ji-su accepted money and hospitality (h1), the person who provided it represented a company bidding for the contract (h2), and the evaluation outcome was changed in Suajaju’s favor (h3)'
+  criteria:
+    - {id: person,   any: ['(?i)\bLee[\s-]*Ji[\s-]*su\b|\bJi[\s-]*su[\s-]*Lee\b']}
+    - {id: provider, any: ['(?i)\bGu[\s-]*Min[\s-]*su\b|\bMin[\s-]*su[\s-]*Gu\b', '(?i)\bSuajaju\b', '(?i)\bPresident\s+Gu\b|\bBoss\s+Gu\b|\bMr\.?\s*Gu\b']}
+    - {id: money,   any: ['5,?000,?000', '(?i)\b5\s+million\b|\bKRW\s*5M\b', '(?i)\bdeposit\w*|\btransfer\w*', '(?i)\bround(?:s|ing)?\s+of\s+golf\b', '(?i)\bgolf\w*', '(?i)\bhospitality\b', '(?i)\bmoney\b|\bcash\b|\bvaluables?\b|\bbribe\w*|\bgift\w*']}
+    - {id: favor,   any: ['(?i)\brank\w*', '(?i)\brevers\w*|\boverturn\w*|\boutrank\w*|\bovertook\b|\bovertak\w*', '(?i)\bfirst\s+place\b|\b1st\b|\bfirst\b|\btop\b|\branked\s+(?:first|1)\b', '(?i)\bfavo(?:u)?r\w*|\badvantag\w*|\bbenefit\w*', '(?i)\bpreferential\b|\bspecial\s+treatment\b|\bfavoritism\b|\bunfair\w*|\bundue\b', '(?i)\bmanipulat\w*|\bfalsif\w*|\brigged\b|\btamper\w*', '(?i)\bchang\w*|\balter\w*|\bswitch\w*|\bmodif\w*|\bflip\w*']}
+    - {id: means,   any: ['(?i)\bshipping\b', '(?i)\bdelivery\b|\bsupply\b', '(?i)\bevaluation\s+(?:criteri\w*|item\w*)\b|\bcriteri\w*', '(?i)\bre-?evaluat\w*|\bre-?assess\w*|\bre-?scor\w*', '(?i)\b(?:second|2nd)\s+(?:round\s+of\s+)?(?:evaluation|assessment)\b']}
+
+evidence:
+  - id: E1
+    label: Consolidated Document 1.xlsx — cash and golf records
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Consolidated[_\s]*Document[_\s]*1\.xlsx'
+    text: '(?i)Gu[\s-]*Min[\s-]*su\s+deposit|round\s+of\s+golf\s+with\s+President\s+Gu'
+
+  - id: E2
+    label: Gu Min-su is the representative of Suajaju
+    reach: REACHABLE
+    path: '(?i)Business[_\s]*Registration[_\s]*Certificate123\.(?:txt|png)'
+    text: '(?i)999-89-66166|Representative\s*[:：]?\s*Gu[\s-]*Min[\s-]*su'
+
+  - id: E3
+    label: Ranking reversal (two versions of the button supplier evaluation results)
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Button[_\s]*Supplier[_\s]*Evaluation[_\s]*Results?'
+    text: '(?i)Total\s*Score\D{1,12}139\D{1,12}140\D{1,12}145|Total\s*Score\D{1,12}182\D{1,12}187\D{1,12}184|27\.8\D{1,12}28\D{1,12}29|36\.4\D{1,12}37\.4\D{1,12}36\.8|Total\s*Score\W{0,12}=SUM\('
+
+  - id: E4
+    label: Added evaluation criterion and favorable scoring
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Button[_\s]*Supplier[_\s]*Evaluation[_\s]*Results?[_\s]*20210202'
+    text: '(?i)(?:Shipping|Delivery)\s*/\s*(?:Delivery|Supply)'
+
+  - id: E5
+    label: File metadata timestamps
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Button[_\s]*Supplier[_\s]*Evaluation[_\s]*Results?|Consolidated[_\s]*Document[_\s]*1\.xlsx'
+    text: '2021-02-01[ T]02:16:50|2021-02-01[ T]07:54:22|datetime\(2021,\s*2,\s*1,\s*2,\s*16,\s*50|datetime\(2021,\s*2,\s*1,\s*7,\s*54,\s*22'
+
+hypotheses:
+  - id: h1
+    label: Lee Ji-su accepted money and hospitality from Gu Min-su
+    conditions:
+      - {id: a, text: The recipient of the money or hospitality was Manager Lee Ji-su, and the provider was Gu Min-su, the representative of Suajaju. Hospitality provided by someone else, such as Park Sun-woo of Jeratech or Lee Gyu-cheol of Pyeongseha, or hospitality received by Jang Guk-ju, does not count}
+      - {id: b, text: What Lee received was either KRW 5 million in cash (deposited on 2021-01-21) or a golf outing}
+    supported_by: [E1]
+    criteria:
+      - {id: recipient, any: ['(?i)\bLee[\s-]*Ji[\s-]*su\b|\bJi[\s-]*su[\s-]*Lee\b']}
+      - {id: provider, anchor: true, any: ['(?i)\bGu[\s-]*Min[\s-]*su\b|\bMin[\s-]*su[\s-]*Gu\b', '(?i)\bPresident\s+Gu\b|\bBoss\s+Gu\b|\bMr\.?\s*Gu\b']}
+      - {id: money,   any: ['5,?000,?000', '(?i)\b5\s+million\b|\bKRW\s*5M\b', '(?i)\bdeposit\w*|\btransfer\w*', '(?i)\bcash\b', '(?i)\bround(?:s|ing)?\s+of\s+golf\b', '(?i)\bgolf\w*', '(?i)\bhospitality\b']}
+
+  - id: h2
+    label: The person who provided the money also represented a bidding company
+    conditions:
+      - {id: a, text: Gu Min-su was the person who provided the money or hospitality}
+      - {id: b, text: Gu Min-su was the representative of Suajaju Co., Ltd., a company that bid to supply buttons}
+    supported_by: [E1, E2]
+    criteria:
+      - {id: vendor,   anchor: true, any: ['(?i)\bSuajaju\b']}
+      - {id: provider, anchor: true, any: ['(?i)\bGu[\s-]*Min[\s-]*su\b|\bMin[\s-]*su[\s-]*Gu\b', '(?i)\bPresident\s+Gu\b|\bBoss\s+Gu\b|\bMr\.?\s*Gu\b']}
+      - {id: relationship,   any: ['(?i)\brepresentative\w*|\bCEO\b', '(?i)\bpresident\b|\bowner\b', '(?i)\bbid\w*|\btender\w*', '(?i)\bparticipat\w*|\bentered\b|\bcompet\w*', '(?i)\bsuppl\w*', '(?i)\bvendor\w*|\bcompan\w*|\bfirm\b']}
+
+  - id: h3
+    label: The evaluation outcome was changed in Suajaju’s favor
+    conditions:
+      - {id: a, text: In the button supplier evaluation, Suajaju ranked first (first evaluation: BugsQ 145, Suajaju 140; second evaluation: Suajaju 187, BugsQ 184)}
+      - {id: b, text: "The ranking changed between the two evaluations (2021-02-01 to 2021-02-02). Wording that makes clear Suajaju was not first in the earlier evaluation is sufficient, such as “moved into first place,” “overtook the other bidder,” or “rose in the rankings”"}
+    supported_by: [E3]
+    criteria:
+      - {id: vendor, anchor: true, any: ['(?i)\bSuajaju\b']}
+      - {id: change, anchor: true, any: ['(?i)\brank\w*', '(?i)\brevers\w*|\boverturn\w*', '(?i)\bfirst\s+place\b|\b1st\b|\bfirst\b|\branked\s+(?:first|1)\b', '(?i)\bchang\w*|\bswitch\w*|\bflip\w*', '(?i)\bflipped\b|\bturn(?:ed)?\s+around\b', '(?i)\brose\b|\bmov(?:ed|e)\s+up\b|\bclimb\w*|\bjump\w*', '(?i)\bhighest\b|\bbest\b|\btop\b',
+                                      '(?i)\btop\s+(?:rank|spot|position)\b|\bhighest[\s-]*ranked\b', '(?i)\bhigher\b|\bupper\b', '(?i)\bahead\b|\bleading\b|\bleapfrog\w*', '(?i)\bovertook\b|\bovertak\w*|\bsurpass\w*|\boutrank\w*', '(?i)\bincreas\w*|\braised\b|\bboost\w*']}
+      - {id: figure, any: ['187', '184', '145', '140', '(?i)\bsecond\s+place\b|\b2nd\b|\bsecond\b', '(?i)\bfirst\s+place\b|\b1st\b|\bfirst\b']}
+
+  - id: h4
+    label: The evaluation was manipulated rather than legitimately reassessed
+    conditions:
+      - {id: a, text: 'In the second evaluation (2021-02-02), a new “Delivery/Supply” criterion was added, and its scores reversed the ranking (Suajaju: 47 points; BugsQ: 39 points)'}
+      - {id: b, text: "The change was described as manipulation or an improper adjustment favoring Suajaju, rather than a legitimate reassessment. A factual statement that there are signs of manipulation—such as “evidence of manipulation was found” or “there are signs the results were overturned by adding a criterion afterward”—also counts. Wording it as a mere “possibility,” “suspicion,” or “allegation” does not"}
+    supported_by: [E4, E5]
+    criteria:
+      - {id: means, anchor: true, any: ['(?i)\bshipping\b', '(?i)\bdelivery\b|\bsupply\b', '(?i)\bevaluation\s+(?:criteri\w*|item\w*)\b|\bcriteri\w*', '(?i)\b(?:added|adding|addition\s+of)\s+(?:a\s+)?(?:new\s+)?(?:evaluation\s+)?(?:criteri\w*|item\w*)\b', '(?i)\bre-?evaluat\w*|\bre-?assess\w*|\bre-?scor\w*']}
+      - {id: judgment, any: ['(?i)\bmanipulat\w*|\bfalsif\w*|\brigged\b|\btamper\w*', '(?i)\barbitrar\w*|\bunilateral\w*', '(?i)\bimproper\w*|\bunjust\w*|\bunfair\w*', '(?i)\bfavo(?:u)?r\w*|\bto\s+(?:its|their)\s+advantage\b', '(?i)\bpreferential\b|\bspecial\s+treatment\b|\bfavoritism\b', '(?i)\btailor\w*|\bcustom-?made\b|\bfit(?:ted)?\s+to\b']}
+      - {id: basis, any: ['(?i)\badd(?:ed|ition\w*|ing|s)?\b', '(?i)\bnewly\s+(?:created|added|introduced)\b|\bintroduc\w*|\bcreated\b', '(?i)\bdid\s+not\s+(?:exist|have)\b|\bnot\s+(?:present|there)\b|\bwas\s+not\b|\bwere\s+not\b|\bno\s+such\b|\babsent\b|\bmissing\b', '(?i)\btimestamp\w*|\btime\w*', '(?i)\bafter\w*|\bsubsequent\w*|\blater\b', '(?i)\bmetadata\b|\bmeta\b']}

@@ -1,0 +1,150 @@
+problem: 2
+title: Acceptance of Hospitality from a Business Partner and Identification of the Venue
+ruleset_version: "2026-10-01.3"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports|Program Files'
+
+aliases:
+  Jang Guk-ju: [Jang Guk-ju, Team Leader Jang Guk-ju, Team Leader Jang]
+  Park Sun-woo: [Park Sun-woo, Jeratech Park Sun-woo]
+
+answer:
+  text: 'Jang Guk-ju accepted hospitality from Park Sun-woo of Jeratech, including a golf outing, a meal, and a ride, at a golf course in Idong-myeon, Yongin'
+  note: 'Full credit requires identifying the venue (h2), the provider and recipient (h3), and the hospitality provided (h4). For the venue, accept the golf course name (Tuscany CC, Korea CC, or Tuscany Hills, all names for the same place), its coordinates, or the answer’s wording, “a golf course in Idong-myeon, Yongin,” as long as they refer to the same place. Do not penalize differences in administrative-area naming, since the prompt asks for the location. For the hospitality, accept one or more specific items: a golf outing, a meal, or a ride (as in the h4 criteria)'
+  criteria:
+    - {id: recipient, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b']}
+    - {id: provider, any: ['(?i)\bPark[\s-]*Sun[\s-]*woo\b|\bSun[\s-]*woo[\s-]*Park\b', '(?i)\bJeratech\b']}
+    - {id: hospitality,   any: ['(?i)\bround(?:s|ing)?\s+of\s+golf\b|\bgolf\s+round\w*', '(?i)\bgolf\w*', '(?i)\bmeals?\b|\bdining\b', '(?i)\bdinner\b', '(?i)\bbarbecue\b|\bbbq\b|\bgrill\w*', '(?i)\bpick-?\s?up\b|\bride\b|\bdriv(?:e|ing|er)\b|\bchauffeur\w*|\btransport\w*', '(?i)\bhospitality\b', '(?i)\bentertain\w*|\btreat(?:ed|s|ing)?\b']}
+    - {id: location,   any: ['37\.22', '127\.15', '(?i)\bYongin\b', '(?i)\bCheoin\b', '(?i)\bI-?dong(?:-myeon)?\b', '(?i)\bgolf\s+(?:course|club|resort)\b|\bcountry\s+club\b', '(?i)\bGPS\b', '(?i)\bcoordinate\w*']}
+    - {id: date,   any: ['(?i)\bFeb(?:ruary)?\.?\s*5(?:th)?\b|\b5(?:th)?\s+(?:of\s+)?Feb(?:ruary)?\b', '2021[.\-/]\s*0?2[.\-/]\s*0?5', '(?i)\bNov(?:ember)?\.?\s*6(?:th)?\b|\b6(?:th)?\s+(?:of\s+)?Nov(?:ember)?\b', '2020[.\-/]\s*11']}
+
+evidence:
+  - id: E1
+    label: Golf outing photo and location data (EXIF GPS)
+    reach: REACHABLE_AFTER_BINARY_PARSE
+    path: 'KakaoTalk_20210125_133951956\.jpg'
+    text: '37\.223[0-9]*,?\s*127\.155|37°13|127°9|\(37\.0,\s*13\.0,\s*25\.3|\(127\.0,\s*9\.0,\s*20\.7'
+
+  - id: E2
+    label: Golf course identified from the coordinates (Tuscany CC · Korea CC · Tuscany Hills)
+    reach: REQUIRES_EXTERNAL_LOOKUP
+    path: 'KakaoTalk_20210125_133951956\.jpg'
+    text: '37\.223[0-9]*,?\s*127\.155|37°13|127°9'
+
+  - id: E3
+    label: Conversation proposing a golf outing
+    reach: REACHABLE
+    path: 'Pictures[\\/]4\.(?:txt|jpg)'
+    text: '(?i)a\s+round\s+of\s+golf|this\s+Friday[^A-Za-z]{0,4}Feb(?:ruary)?\.?\s*5\b'
+
+  - id: E4
+    label: 'Photo source: Park Sun-woo of Jeratech'
+    reach: REACHABLE
+    path: 'Pictures[\\/]3\.(?:txt|jpg)'
+    text: '(?i)is\s+this\s+the\s+right\s+place|if\s+you\s+have\s+(?:any\s+)?photos?\s+like\s+this'
+
+  - id: E5
+    label: Request for a meal · ride offered
+    reach: REACHABLE
+    path: 'Pictures[\\/][12]\.(?:txt|jpg)'
+    text: '(?i)BBQ\s+restaurant|have\s+dinner\s+before\s+(?:going|we\s+go)|together\s+in\s+my\s+car|come\s+pick\s+you\s+up'
+
+  - id: E6
+    label: False entry in the work log
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)[\\/]February[_\s]*Work[_\s]*Log\.xlsx'
+    text: '(?i)(?:20210205|2021[-./]0?2[-./]0?5)[^A-Za-z]{1,25}External\s+Vendor\s+Meeting'
+
+  - id: E7
+    label: Earlier golf outing on 2020-11-06
+    reach: REACHABLE
+    path: 'Pictures[\\/]3\.(?:txt|jpg)'
+    text: '(?i)went\s+to\s+on\s+Nov(?:ember)?\.?\s*6\b'
+
+  - id: E8
+    label: Statement that the provider would cover the cost
+    reach: REACHABLE
+    path: 'Pictures[\\/][23]\.(?:txt|jpg)'
+    text: '(?i)don.t\s+worry\s+about\s+the\s+money|just\s+bring\s+yourself'
+
+  - id: E9
+    label: Jeratech as a prospective new vendor · Park Sun-woo as its representative (new-label and hangtag vendor comparison materials)
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)New[_\s]*Label[_\s]*and[_\s]*Hangtag(?: \(1\))?\.pptx'
+    text: '(?i)Jeratech(?:\s|<[^>]*>)*Park[\s-]*Sun[\s-]*woo(?:\s|<[^>]*>)*2019'
+
+hypotheses:
+  - id: h1
+    label: The photo came from Park Sun-woo of Jeratech
+    conditions:
+      - {id: a, text: Park Sun-woo of Jeratech sent or provided the photo}
+      - {id: b, text: The photo shows a golf course or golf outing venue}
+    supported_by: [E1, E4]
+    criteria:
+      - {id: provider, anchor: true, any: ['(?i)\bPark[\s-]*Sun[\s-]*woo\b|\bSun[\s-]*woo[\s-]*Park\b', '(?i)\bJeratech\b']}
+      - {id: photo,   any: ['(?i)\bphoto\w*|\bpicture\w*', '(?i)\bimage\w*', '\.jpg', '(?i)Kakao[\s-]*Talk']}
+      - {id: delivery,   any: ['(?i)\b(?:sent|send|sends|sending)\b', '(?i)\bforward\w*|\bdeliver\w*', '(?i)\breceiv\w*', '(?i)\bsource\w*|\boriginat\w*|\bprovid(?:ed|es|ing)\b', '(?i)\btransmit\w*|\btransfer\w*', '(?i)\bshar(?:e|ed|es|ing)\b']}
+
+  - id: h2
+    label: The venue for the hospitality is identified
+    conditions:
+      - {id: a, text: 'The golf course where the hospitality took place is identified by name as one of the following: Tuscany CC, Korea CC, or Tuscany Hills (including other names for the same golf course). A response that gives only coordinates or an administrative area (Idong-myeon, Cheoin-gu, Yongin), or names a different golf course, does not satisfy this condition'}
+      - {id: b, text: The golf course was identified using the photo’s EXIF/GPS location data (coordinates)}
+    supported_by: [E1, E2]
+    criteria:
+      - {id: location, anchor: true, any: ['37\.22', '127\.15', '(?i)\bYongin\b', '(?i)\bCheoin\b', '(?i)\bI-?dong(?:-myeon)?\b', '37°13', '127°9']}
+      - {id: basis, any: ['EXIF', '(?i)\bGPS\b', '(?i)\blocation\s+(?:data|information|info)\b', '(?i)\bcoordinate\w*', '(?i)\bmetadata\b']}
+      - {id: venue, any: ['(?i)\bgolf\s+(?:course|club|resort)\b', '(?i)\bgolf\w*', '(?i)\bround(?:s|ing)?\s+of\s+golf\b', '\bCC\b', '(?i)\bcountry\s+club\b']}
+
+  - id: h3
+    label: The provider and recipient are identified
+    conditions:
+      - {id: a, text: Park Sun-woo was the person who provided or proposed the hospitality}
+      - {id: b, text: 'Jang Guk-ju was the person who received or was offered the hospitality. This condition is satisfied if the response says it was offered to Jang Guk-ju, even if it does not state that he accepted it'}
+    supported_by: [E3, E4]
+    criteria:
+      - {id: recipient, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b']}
+      - {id: provider, anchor: true, any: ['(?i)\bPark[\s-]*Sun[\s-]*woo\b|\bSun[\s-]*woo[\s-]*Park\b', '(?i)\bJeratech\b']}
+      - {id: relationship,   any: ['(?i)\bvendor\w*|\bsupplier\w*|\bcompan\w*', '(?i)\bpartner\w*|\bcooperat\w*|\bcollaborat\w*', '(?i)\bclient\w*|\bcustomer\w*|\bbusiness\s+contact\w*', '(?i)\bpropos\w*|\boffer\w*|\binvit\w*', '(?i)\breceiv\w*|\baccept\w*', '(?i)\bexchang\w*|\bgift\w*|\bhospitality\b']}
+
+  - id: h4
+    label: The hospitality provided is identified
+    conditions:
+      - {id: a, text: 'At least one specific item of hospitality is identified: a golf outing, a meal (at a barbecue restaurant), or a ride. Saying that the outing, meal, or ride was booked, arranged, or promised also counts'}
+      - {id: b, text: 'The vendor (Park Sun-woo) covered the cost. Saying that the vendor paid, treated the recipient, or provided it as hospitality also counts'}
+    supported_by: [E5, E8]
+    criteria:
+      - {id: content, anchor: true, any: ['(?i)\bround(?:s|ing)?\s+of\s+golf\b|\bgolf\s+round\w*', '(?i)\bgolf\w*', '(?i)\bmeals?\b|\bdining\b', '(?i)\bdinner\b', '(?i)\bbarbecue\b|\bbbq\b|\bgrill\w*', '(?i)\bpick-?\s?up\b|\bride\b|\bdriv(?:e|ing|er)\b|\bchauffeur\w*', '(?i)\bcar\b|\bvehicle\w*|\btransport\w*']}
+      - {id: cost, any: ['(?i)\bworry\w*\s+about\s+(?:the\s+)?money|\bdon.t\s+(?:think|worry)\b', '(?i)\bjust\s+bring\s+yourself\b', '(?i)\bcost\w*|\bexpens\w*|\bpaid\b|\bpay\w*', '(?i)\bburden\w*|\bcover(?:ed|ing|s)?\b|\bbear\w*|\bfoot(?:ed|ing)?\b', '(?i)\bfree\b|\bat\s+no\s+cost\b|\bcomplimentary\b', '(?i)\bfull(?:y)?\s+(?:paid|covered|funded)\b|\bentire\s+cost\b|\ball\s+expenses\b', '(?i)\btreat(?:ed|s|ing)?\b|\bhost(?:ed|ing|s)?\b']}
+      - {id: date, any: ['(?i)\bFeb(?:ruary)?\.?\s*5(?:th)?\b|\b5(?:th)?\s+(?:of\s+)?Feb(?:ruary)?\b', '2021[.\-/]\s*0?2[.\-/]\s*0?5', '(?i)\bFriday\b']}
+
+aux:
+  - id: x1
+    label: This was not a one-time occurrence
+    conditions:
+      - {id: a, text: The same golf course had hosted a golf outing provided as hospitality before the 2021-02-05 outing}
+      - {id: b, text: 'The earlier date was 2020-11-06 (the photo date and the date referred to in the conversation as “the place we went on November 6”)'}
+    supported_by: [E7]
+    criteria:
+      - {id: repetition, any: ['(?i)\bnot\s+(?:a\s+)?(?:one-?time|single|first|isolated)\b|\bmore\s+than\s+once\b', '(?i)\btwice\b|\btwo\s+(?:times|occasions|outings)\b', '(?i)\b(?:2|two)\s+(?:times|occasions|visits)\b', '(?i)\brepeat\w*|\brecurr\w*', '(?i)\bpreviou\w*|\bearlier\b|\bprior\b|\bbefore\b', '(?i)\bcontinu\w*|\bongoing\b', '(?i)\bhabitual\w*|\bregular\w*']}
+      - {id: timing, any: ['(?i)\bNov(?:ember)?\.?\s*6(?:th)?\b|\b6(?:th)?\s+(?:of\s+)?Nov(?:ember)?\b', '2020[.\-/]\s*11', '2020:11:06']}
+
+  - id: x2
+    label: Hospitality was provided during work hours, and the work log was falsified
+    conditions:
+      - {id: a, text: The hospitality took place during working hours on a weekday}
+      - {id: b, text: 'The response says that the February 5 outing was recorded in the February work log as an “external vendor meeting.” It does not need to explicitly say that the entry was false. Quoting only the conversation saying “I’ll tell the company we’re having a meeting” does not satisfy this condition'}
+    supported_by: [E6]
+    criteria:
+      - {id: falsification, any: ['(?i)\bfals\w*|\bfake\w*|\bfabricat\w*|\bmisrepresent\w*', '(?i)External\s+Vendor\s+Meeting', '(?i)\b(?:recorded|logged|listed|entered|described|labell?ed)\s+as\b|\bas\s+a\s+meeting\b', '(?i)\brecord\w*|\blogged\b|\bentry\b|\bentries\b', '(?i)\bconceal\w*|\bcover(?:ed|ing)?\s+up\b|\bhid(?:e|den|ing)\b', '(?i)\bdisguis\w*|\bpos(?:e|ed|ing)\s+as\b|\bpass(?:ed|ing)?\s+off\b']}
+      - {id: material, any: ['(?i)\bwork[\s-]*logs?\b', '(?i)\blogs?\b|\bdiary\b|\bjournal\b', '(?i)\bFeb(?:ruary)?\b']}
+
+  - id: x3
+    label: Jeratech was a prospective new vendor, and Park Sun-woo was its representative
+    conditions:
+      - {id: a, text: 'The response says Jeratech was a prospective new vendor that handled woven labels, care labels, or hangtags'}
+      - {id: b, text: 'The response says Park Sun-woo was Jeratech’s representative. It also counts if the response says Park Sun-woo was listed alongside Jeratech in a document. Merely referring to them together as “Jeratech Park Sun-woo” in the answer does not satisfy this condition'}
+    supported_by: [E9]
+    criteria:
+      - {id: vendor, anchor: true, any: ['(?i)\bJeratech\b']}
+      - {id: new_vendor, any: ['(?i)\bnew\b|\bprospective\b', '(?i)\bcandidate\w*|\bpotential\b', '(?i)\bcompar\w*']}
+      - {id: representative, any: ['(?i)\bPark[\s-]*Sun[\s-]*woo\b|\bSun[\s-]*woo[\s-]*Park\b', '(?i)\brepresentative\w*|\bCEO\b|\bpresident\b']}

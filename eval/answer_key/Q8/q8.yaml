@@ -1,0 +1,83 @@
+problem: 8
+title: The Three Elements of Workplace Harassment
+ruleset_version: "2026-10-02.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports|Program Files'
+
+aliases:
+  Kang Su-min: [Kang Su-min, Assistant Manager Kang Su-min, HB_sumin]
+  Go Su-bong: [Go Su-bong, Assistant Manager Go Su-bong]
+  Lee Dong-geun: [Lee Dong-geun, Assistant Manager Lee Dong-geun]
+
+answer:
+  text: 'Assistant Manager Kang Su-min’s conduct meets all three elements of workplace harassment'
+  note: 'For full credit, address and connect all three elements: misuse of a position or relationship of superiority (h1), conduct exceeding the reasonable scope of work (h2), and resulting psychological distress or deterioration of the work environment (h3)'
+  criteria:
+    - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+    - {id: victim, any: ['(?i)\bGo[\s-]*Su[\s-]*bong\b|\bSu[\s-]*bong[\s-]*Go\b']}
+    - {id: superiority,   any: ['(?i)\bsenior\w*|\bupperclassm\w*', '(?i)\b(?:1|one)[\s-]*year\b', '(?i)\bdirect\s+senior\b|\bimmediate\s+senior\b', '(?i)\bsuperior\w*|\bupper\s+hand\b|\badvantage\b|\bpower\b', '(?i)\brelationship\w*|\bhierarch\w*', '(?i)\bposition\b|\bstatus\b|\brank\b']}
+    - {id: action,   any: ['(?i)\berrand\w*', '(?i)\bpark\w*|\bmov\w*\s+(?:a\s+|the\s+|his\s+|her\s+)?car\b', '(?i)\bcigarette\w*|\bsmok\w*', '(?i)\bcoffee\b|\bamericano\b', '(?i)\bsushi\b|\braw[\s-]*fish\b|\bsashimi\b', '(?i)\bdiscount\w*', '(?i)\bverbal\w*|\babusive\b|\binsult\w*|\bcurs\w*|\bswear\w*|\bprofan\w*', '(?i)\bshift\w*|\boffload\w*|\bdump\w*|\bpass\w*\s+(?:off|on)\b', '(?i)\bshift\w*\s+(?:the\s+)?(?:work|blame|responsib\w*)|\bpush\w*\s+(?:off|onto)|\bdelegat\w*']}
+    - {id: result,   any: ['(?i)\bdistress\w*|\bsuffer\w*|\bpain\w*|\bagon\w*', '(?i)\bwork(?:ing)?[\s-]*environment\b|\bworkplace\b', '(?i)\bworsen\w*|\bdeteriorat\w*|\baggravat\w*', '(?i)\bpsycholog\w*|\bmental\w*|\bemotional\w*', '(?i)\bstress\w*', '(?i)\bharass\w*|\bbully\w*|\bhostile\b']}
+
+evidence:
+  - id: E1
+    label: Conversation between Lee Dong-geun and Kang Su-min (seniority-based relationship advantage · remarks after the rooftop incident)
+    reach: REACHABLE
+    path: '(?i)IT[_\s]*Team[_\s]*(?:Assistant[_\s]*Manager[_\s]*)?Lee[\s-]*Dong[\s-]*geun.*Kang[\s-]*Su[\s-]*min(?:[_\s]*Assistant[_\s]*Manager)?\.txt'
+    text: '(?i)one\s+year\s+is\s+like\s+heaven|direct\s+senior|only\s+a\s+one-?year\s+difference|watch\s+how\s+I\s+(?:do|handle)\s+it|reliev\w*\s+(?:my\s+)?stress'
+
+  - id: E2
+    label: Errand to move a car
+    reach: REACHABLE
+    path: '(?i)CallRec[_\s]*(?:Assistant[_\s]*Manager[_\s]*)?Go[\s-]*Su[\s-]*bong(?:[_\s]*Assistant[_\s]*Manager)?[_\s]*125345456\.(?:txt|m4a)'
+    text: '(?i)come\s+(?:quickly\s+)?to\s+the\s+parking\s+lot(?:\s+quickly)?|I\s+need\s+to\s+move\s+my\s+car'
+
+  - id: E3
+    label: Conversation between Go Su-bong and Kang Su-min (errands for cigarettes and coffee · request for a discount at a family member’s sushi restaurant)
+    reach: REACHABLE
+    path: '(?i)(?:Assistant[_\s]*Manager[_\s]*)?Go[\s-]*Su[\s-]*bong(?:[_\s]*Assistant[_\s]*Manager)?,\s*Purchasing[_\s]*Team[_\s]*(?:Assistant[_\s]*Manager[_\s]*)?Kang[\s-]*Su[\s-]*min(?:[_\s]*Assistant[_\s]*Manager)?\.txt'
+    text: '(?i)get\s+me\s+a\s+coffee|buy\s+mine\s+too|iced\s+americano|do\s+they\s+give\s+a\s+discount|what\s+does\s+your\s+brother\s+do'
+
+  - id: E4
+    label: Shifting work onto a subordinate
+    reach: REACHABLE
+    path: '(?i)CallRec[_\s]*(?:Assistant[_\s]*Manager[_\s]*)?Go[\s-]*Su[\s-]*bong(?:[_\s]*Assistant[_\s]*Manager)?[_\s]*(?:123151533|45645243)\.(?:txt|m4a)'
+    text: '(?i)what\s+the\s+Deputy\s+General\s+Manager\s+(?:told|asked|had)|by\s+five\s+o.clock|(?:quickly\s*){4,}'
+
+  - id: E5
+    label: Refusal to cover work during leave (using seniority · email)
+    reach: REACHABLE_AFTER_EXTRACTION
+    path: 'HB_sumin[\\/].*backup\.pst|backup\.pst|\bmbox\b|readpst|pffexport'
+    text: '(?i)Am\s+I\s+your\s+(?:lackey|servant|minion|flunky)|do\s+your\s+own\s+work\s+(?:yourself\s+)?(?:and\s+)?(?:then\s+)?leave'
+
+hypotheses:
+  - id: h1
+    label: She used her position or relationship of superiority (element 1)
+    conditions:
+      - {id: a, text: Kang Su-min held a position of relationship-based superiority over Go Su-bong. They had the same job title, but Kang Su-min had joined the company one year earlier and was Go Su-bong’s immediate senior}
+      - {id: b, text: "Kang Su-min used that advantage to direct, pressure, or make demands of Go Su-bong, or to refuse his request. For example, she refused to cover his work during leave, saying, “Am I your servant? Take care of your own work before you go.” A response stating that there is evidence she used her superior position also counts"}
+    supported_by: [E1, E5]
+    criteria:
+      - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+      - {id: victim, anchor: true, any: ['(?i)\bGo[\s-]*Su[\s-]*bong\b|\bSu[\s-]*bong[\s-]*Go\b']}
+      - {id: superiority,   any: ['(?i)\bsenior\w*|\bupperclassm\w*', '(?i)\b(?:1|one)[\s-]*year\b', '(?i)\bdirect\s+senior\b|\bimmediate\s+senior\b', '(?i)\bsuperior\w*|\bupper\s+hand\b|\badvantage\b|\bpower\b', '(?i)\bseniority\b|\btenure\b|\byears?\s+of\s+service\b', '(?i)\bjoined\b|\bhired\b|\bentered\s+the\s+company\b|\bjoin(?:ing)?\b', '(?i)\brelationship\w*|\bhierarch\w*']}
+
+  - id: h2
+    label: Her conduct exceeded the reasonable scope of work (element 2)
+    conditions:
+      - {id: a, text: "At least one of the following occurred: Kang Su-min assigned Go Su-bong personal errands (moving a car, buying cigarettes or coffee, or asking for a discount at a family member’s sushi restaurant); shifted work assigned by the team leader onto him; or reprimanded him in a public place witnessed by a third party (Lee Dong-geun), in the rooftop incident on January 22. Insults or criticism in a private one-on-one conversation alone do not count. Conduct by other people, such as Lee Ji-su or Jang Guk-ju, does not count"}
+      - {id: b, text: "The response states that the conduct lacked a work-related need and exceeded the reasonable scope of work. A statement that there is evidence it exceeded that scope also counts"}
+    supported_by: [E1, E2, E3, E4]
+    criteria:
+      - {id: action, anchor: true, any: ['(?i)\berrand\w*', '(?i)\bpark\w*|\bmov\w*\s+(?:a\s+|the\s+|his\s+|her\s+)?car\b', '(?i)\bcigarette\w*|\bsmok\w*', '(?i)\bcoffee\b|\bamericano\b', '(?i)\bsushi\b|\braw[\s-]*fish\b|\bsashimi\b', '(?i)\bdiscount\w*', '(?i)\bshift\w*|\boffload\w*|\bdump\w*|\bpass\w*\s+(?:off|on)\b', '(?i)\bshift\w*\s+(?:the\s+)?(?:work|blame|responsib\w*)|\bpush\w*\s+(?:off|onto)|\bdelegat\w*', '(?i)\bpersonal\w*|\bprivate\b']}
+      - {id: judgment, any: ['(?i)\bunrelated\s+to\s+(?:the\s+)?(?:work|business|job)\b|\bnon-?work\b|\bnot\s+(?:work|business|job)[\s-]*related\b|\bno\s+(?:work|business)[\s-]*(?:related\s+)?(?:need|purpose|reason)\b', '(?i)\breasonable\s+scope\b|\bappropriate\s+(?:scope|range)\b|\bproper\s+(?:scope|range)\b', '(?i)\bpersonal\w*|\bprivate\b', '(?i)\bimproper\w*|\bunjust\w*|\bunreasonable\b|\bunfair\b', '(?i)\bexceed\w*|\bbeyond\b|\bgo(?:es)?\s+over\b|\boverstep\w*', '(?i)\bdeviat\w*|\boutside\s+(?:the\s+)?(?:scope|range|bounds)\b|\bout\s+of\s+(?:scope|bounds)\b|\bbeyond\b']}
+      - {id: case, any: ['(?i)\bmov\w*\s+(?:his\s+|her\s+|the\s+|a\s+)?car\b', '(?i)\bamericano\b|\biced\s+coffee\b', '(?i)\bbuy\w*|\bbought\b|\bpurchas\w*|\bpick(?:ing)?\s+up\b', '(?i)\b(?:6|six)\s+(?:people|persons|members|colleagues)\b', '(?i)\bSaturday\b', '(?i)\bDeputy\s+General\s+Manager\b']}
+
+  - id: h3
+    label: The conduct caused psychological distress and worsened the work environment (element 3)
+    conditions:
+      - {id: a, text: "Kang Su-min acted with the intention of causing Go Su-bong stress, as reflected in her remarks after the rooftop incident: “That relieved my stress” and “Watch how I handle this.” A response stating that there is evidence of this intent also counts"}
+      - {id: b, text: "As a result, Go Su-bong experienced psychological distress or became intimidated, or the work environment deteriorated. A response stating that there is evidence of deterioration also counts. Wording it as a mere “possibility,” “suspicion,” or “allegation” does not satisfy this condition"}
+    supported_by: [E1, E4]
+    criteria:
+      - {id: result, anchor: true, any: ['(?i)\bdistress\w*|\bsuffer\w*|\bpain\w*|\bagon\w*', '(?i)\bwork(?:ing)?[\s-]*environment\b|\bworkplace\b', '(?i)\bworsen\w*|\bdeteriorat\w*|\baggravat\w*', '(?i)\bpsycholog\w*|\bmental\w*|\bemotional\w*', '(?i)\bstress\w*', '(?i)\bintimidat\w*|\bdaunted\b|\bcower\w*|\bwithdrawn\b|\bdiscourag\w*', '(?i)\bhumiliat\w*|\bdegrad\w*|\bdemean\w*|\bbelittl\w*']}
+      - {id: basis, any: ['(?i)\brelie\w*\s+(?:my\s+)?stress\b|\bstress\s+relief\b', '(?i)\bwatch\s+how\s+I\b|\bhow\s+I\s+(?:do|handle|deal)\b', '(?i)\bflustered\b|\bembarrass\w*|\bpanick\w*|\bflurried\b|\bstartl\w*|\bconfus\w*|\bshaken\b', '(?i)\bsorry\b|\bapolog\w*', '(?i)\brepeat\w*|\brecurr\w*', '(?i)\bcontinu\w*|\bongoing\b']}

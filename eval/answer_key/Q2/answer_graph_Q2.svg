@@ -1,0 +1,102 @@
+<svg viewBox="0 0 1008 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Answer structure for Question 2 - evidence, claim, and conclusion layers" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7887"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A6209"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E5BB5"/></marker></defs>
+<path d="M34,58 H14 V126 H34" fill="none" stroke="#D2D9E0" stroke-width="1.5" stroke-dasharray="2 3" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,126 400,126" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,126 400,126" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,126 C357,126 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,330 C357,330 357,330 400,330" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,534 C357,534 357,330 400,330" fill="none" stroke="#7E5BB5" stroke-width="1.5" marker-end="url(#r)"/>
+<path d="M314,602 C357,602 357,602 400,602" fill="none" stroke="#7E5BB5" stroke-width="1.5" marker-end="url(#r)"/>
+<path d="M314,466 C357,466 357,398 400,398" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M314,398 C357,398 357,466 400,466" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M680,126 C723,126 723,330 766,330" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,194 C723,194 723,330 766,330" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,262 C723,262 723,330 766,330" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,330 C723,330 723,330 766,330" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,398 C723,398 723,330 766,330" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M680,466 C723,466 723,330 766,330" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M680,602 C723,602 723,330 766,330" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<rect x="34" y="34" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E1</text>
+<text x="78" y="53" font-size="11.5" fill="#171C23">Golf photo and GPS location</text>
+<text x="78" y="68" font-size="9.5" fill="#6B7887">EXIF GPS 37.223708, 127.155769</text>
+<text x="304" y="53" text-anchor="end" font-size="9" fill="#8A97A5">Binary parse</text>
+<rect x="34" y="102" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E2</text>
+<text x="78" y="121" font-size="11.5" fill="#171C23">Course name from GPS</text>
+<text x="78" y="136" font-size="9.5" fill="#6B7887">Tuscany CC, Korea CC, Tuscany Hills (same place)</text>
+<text x="304" y="121" text-anchor="end" font-size="9" fill="#8A97A5">External lookup</text>
+<rect x="34" y="170" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E3</text>
+<text x="78" y="189" font-size="11.5" fill="#171C23">Chat proposing a golf outing</text>
+<text x="78" y="204" font-size="9.5" fill="#6B7887">Sent on 2/1, proposing a golf outing on 2/5</text>
+<rect x="34" y="238" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E4</text>
+<text x="78" y="257" font-size="11.5" fill="#171C23">Photo source: Park Sun-woo, Jeratech</text>
+<text x="78" y="272" font-size="9.5" fill="#6B7887">Sent via KakaoTalk</text>
+<rect x="34" y="306" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E5</text>
+<text x="78" y="325" font-size="11.5" fill="#171C23">Meal request and ride offer</text>
+<text x="78" y="337" font-size="9.5" fill="#6B7887">Dinner followed the golf outing, and they</text>
+<text x="78" y="348" font-size="9.5" fill="#6B7887">rode together in the vendor's car</text>
+<rect x="34" y="374" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="46" y="393" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">E6</text>
+<text x="78" y="393" font-size="11.5" fill="#171C23">Work log was falsified</text>
+<text x="78" y="408" font-size="9.5" fill="#6B7887">Golf day logged as an external vendor meeting</text>
+<text x="304" y="393" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="442" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="46" y="461" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">E7</text>
+<text x="78" y="461" font-size="11.5" fill="#171C23">Earlier golf outing on 2020.11.6</text>
+<text x="78" y="476" font-size="9.5" fill="#6B7887">So it wasn't the first time</text>
+<rect x="34" y="510" width="280" height="48" rx="7" fill="#F1EBF8" stroke="#7E5BB5" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="46" y="529" font-family="monospace" font-size="10" font-weight="600" fill="#7E5BB5">E8</text>
+<text x="78" y="529" font-size="11.5" fill="#171C23">Offer to cover the costs</text>
+<text x="78" y="544" font-size="9.5" fill="#6B7887">"Don't worry about the money, just bring yourself"</text>
+<rect x="34" y="578" width="280" height="48" rx="7" fill="#F1EBF8" stroke="#7E5BB5" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="46" y="597" font-family="monospace" font-size="10" font-weight="600" fill="#7E5BB5">E9</text>
+<text x="78" y="597" font-size="11.5" fill="#171C23">Jeratech: new vendor candidate</text>
+<text x="78" y="612" font-size="9.5" fill="#6B7887">New label and hangtag vendor comparison files</text>
+<text x="304" y="597" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="400" y="102" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C1</text>
+<text x="444" y="121" font-size="11.5" fill="#171C23">Photo source: Park Sun-woo, Jeratech</text>
+<text x="444" y="136" font-size="9.5" fill="#6B7887">Where location and relationship evidence meet</text>
+<rect x="400" y="170" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C2</text>
+<text x="444" y="189" font-size="11.5" fill="#171C23">Venue: Tuscany CC / Korea CC</text>
+<text x="444" y="204" font-size="9.5" fill="#6B7887">Location evidence, down to the course name</text>
+<rect x="400" y="238" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C3</text>
+<text x="444" y="257" font-size="11.5" fill="#171C23">Identifying the provider and recipient</text>
+<text x="444" y="272" font-size="9.5" fill="#6B7887">Park Sun-woo of Jeratech → Jang Guk-ju</text>
+<rect x="400" y="306" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C4</text>
+<text x="444" y="325" font-size="11.5" fill="#171C23">Hospitality: golf, a meal, and a ride</text>
+<rect x="400" y="374" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="412" y="393" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">C5</text>
+<text x="444" y="393" font-size="11.5" fill="#171C23">Not a one-time occurrence</text>
+<text x="444" y="408" font-size="9.5" fill="#6B7887">2020.11.6 / 2021.2.5</text>
+<rect x="400" y="442" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="412" y="461" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">C6</text>
+<text x="444" y="461" font-size="11.5" fill="#171C23">Accepted in work hours; work log falsified</text>
+<rect x="400" y="578" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="412" y="597" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">C7</text>
+<text x="444" y="597" font-size="11.5" fill="#171C23">Jeratech is a prospective new vendor</text>
+<text x="444" y="612" font-size="9.5" fill="#6B7887">Park Sun-woo is its representative</text>
+<rect x="766" y="250" width="208" height="162" rx="9" fill="var(--ans-bg,#F8E6ED)" stroke="var(--ans,#9E2B58)" stroke-width="1.8"/>
+<text x="870" y="270" text-anchor="middle" font-family="monospace" font-size="9.5" fill="var(--ans,#9E2B58)">Conclusion A</text>
+<text x="870" y="292" text-anchor="middle" font-size="11.5" fill="#171C23">Received hospitality from</text>
+<text x="870" y="310" text-anchor="middle" font-size="11.5" fill="#171C23">Park Sun-woo of Jeratech:</text>
+<text x="870" y="328" text-anchor="middle" font-size="11.5" fill="#171C23">a golf outing, meal, and ride</text>
+<text x="870" y="346" text-anchor="middle" font-size="11.5" fill="#171C23">at a golf course in</text>
+<text x="870" y="364" text-anchor="middle" font-size="11.5" fill="#171C23">Idong-myeon, Yongin</text>
+<line x1="780" y1="376" x2="960" y2="376" stroke="var(--ans,#9E2B58)" stroke-width="1" opacity=".3"/>
+<text x="870" y="392" text-anchor="middle" font-size="9.5" fill="#6B7887">Full credit requires tying C2, C3,</text>
+<text x="870" y="405" text-anchor="middle" font-size="9.5" fill="#6B7887">and C4 together</text>
+<text x="34" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Evidence E</text>
+<text x="400" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Claim C</text>
+<text x="766" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Conclusion A</text>
+</svg>

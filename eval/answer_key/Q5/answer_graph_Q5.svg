@@ -1,0 +1,63 @@
+<svg viewBox="0 0 1008 456" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Answer structure for Question 5 - evidence, claim, and conclusion layers" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7887"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A6209"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E5BB5"/></marker></defs>
+<path d="M314,58 C357,58 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,126 C357,126 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,194 400,194" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M314,330 C357,330 357,194 400,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,398 C357,398 357,194 400,194" fill="none" stroke="#7E5BB5" stroke-width="1.5" marker-end="url(#r)"/>
+<path d="M314,194 C357,194 357,262 400,262" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,330 C357,330 357,330 400,330" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<path d="M680,194 C723,194 723,228 766,228" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,262 C723,262 723,228 766,228" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,330 C723,330 723,228 766,228" fill="none" stroke="#8A6209" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#b)"/>
+<rect x="34" y="34" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E1</text>
+<text x="78" y="53" font-size="11.5" fill="#171C23">Blank template filled in</text>
+<text x="78" y="68" font-size="9.5" fill="#6B7887">V1 is blank · V2 has the items and prices</text>
+<text x="304" y="53" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="102" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E2</text>
+<text x="78" y="121" font-size="11.5" fill="#171C23">Dated before it was written</text>
+<text x="78" y="136" font-size="9.5" fill="#6B7887">Written 2/2, but dated 1/13</text>
+<text x="304" y="121" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="170" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E3</text>
+<text x="78" y="189" font-size="11.5" fill="#171C23">Statement matches the quoted amount</text>
+<text x="78" y="204" font-size="9.5" fill="#6B7887">Total 3,050,000 · same seal image as the quotation</text>
+<rect x="34" y="238" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="46" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">E4</text>
+<text x="78" y="257" font-size="11.5" fill="#171C23">Seal is a pasted-in image</text>
+<text x="78" y="272" font-size="9.5" fill="#6B7887">Supplier's seal · a sign she made it herself</text>
+<text x="304" y="257" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="306" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E5</text>
+<text x="78" y="325" font-size="11.5" fill="#171C23">Call: quotation already sent to vendor</text>
+<text x="78" y="340" font-size="9.5" fill="#6B7887">2021-02-02 17:24</text>
+<rect x="34" y="374" width="280" height="48" rx="7" fill="#F1EBF8" stroke="#7E5BB5" stroke-width="1.5" stroke-dasharray="4 3"/>
+<text x="46" y="393" font-family="monospace" font-size="10" font-weight="600" fill="#7E5BB5">E6</text>
+<text x="78" y="393" font-size="11.5" fill="#171C23">v2 last edited by Kang Su-min</text>
+<text x="78" y="408" font-size="9.5" fill="#6B7887">v1 is Cocomade's file · v2 was edited by her</text>
+<text x="304" y="393" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="400" y="170" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C1</text>
+<text x="444" y="189" font-size="11.5" fill="#171C23">Purchasing Team staff wrote the quotation</text>
+<rect x="400" y="238" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C2</text>
+<text x="444" y="257" font-size="11.5" fill="#171C23">A real transaction followed that quotation</text>
+<rect x="400" y="306" width="280" height="48" rx="7" fill="var(--bonus-bg,#F7EEDA)" stroke="var(--bonus,#8A6209)" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="412" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--bonus,#8A6209)">C3</text>
+<text x="444" y="325" font-size="11.5" fill="#171C23">Jang Guk-ju gave instructions</text>
+<rect x="766" y="150" width="208" height="157" rx="9" fill="var(--ans-bg,#F8E6ED)" stroke="var(--ans,#9E2B58)" stroke-width="1.8"/>
+<text x="870" y="170" text-anchor="middle" font-family="monospace" font-size="9.5" fill="var(--ans,#9E2B58)">Conclusion A</text>
+<text x="870" y="192" text-anchor="middle" font-size="11.5" fill="#171C23">Assistant Manager Kang Su-min</text>
+<text x="870" y="210" text-anchor="middle" font-size="11.5" fill="#171C23">prepared a quotation for Cocomade</text>
+<text x="870" y="228" text-anchor="middle" font-size="11.5" fill="#171C23">herself, and a transaction took</text>
+<text x="870" y="246" text-anchor="middle" font-size="11.5" fill="#171C23">place at the quoted price</text>
+<line x1="780" y1="258" x2="960" y2="258" stroke="var(--ans,#9E2B58)" stroke-width="1" opacity=".3"/>
+<text x="870" y="274" text-anchor="middle" font-size="9.5" fill="#6B7887">Full credit requires stating both that</text>
+<text x="870" y="287" text-anchor="middle" font-size="9.5" fill="#6B7887">she prepared the quotation and that a</text>
+<text x="870" y="300" text-anchor="middle" font-size="9.5" fill="#6B7887">transaction took place</text>
+<text x="34" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Evidence E</text>
+<text x="400" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Claim C</text>
+<text x="766" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Conclusion A</text>
+</svg>

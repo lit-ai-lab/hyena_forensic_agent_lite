@@ -1,0 +1,97 @@
+problem: 1
+title: Resume Written on Behalf of an Applicant at a Manager’s Request
+ruleset_version: "2026-10-01.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports'
+
+aliases:
+  Jang Guk-ju: [Jang Guk-ju, Team Leader Jang Guk-ju]
+  Kang Su-min: [Kang Su-min, HB_sumin]
+  Choi Ki-young: [Choi Ki-young, 'Choi, Ki-young']
+
+answer:
+  text: 'At Team Leader Jang Guk-ju’s direction, Assistant Manager Kang Su-min prepared and revised applicant Choi Ki-young’s resume on their behalf'
+  note: 'Full credit requires combining both the instruction (h1: Jang Guk-ju instructed someone to prepare the resume) and the revision (h3: Kang Su-min actually revised the resume) in one sentence'
+  criteria:
+    - {id: instructor, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b']}
+    - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+    - {id: target,   any: ['(?i)\bChoi[\s,-]*Ki[\s-]*young\b|\bKi[\s-]*young[\s,-]*Choi\b']}
+    - {id: document,   any: ['(?i)\bresum[eé]s?\b', '(?i)\bCV\b']}
+    - {id: action,   any: ['(?i)\bghost-?writ\w*|\bghostwrote\b', '(?i)\bon (?:his|her|their) behalf\b|\bin (?:his|her|their|the applicant.s) place\b|\b(?:wrote|prepared|drafted)\b[^.]{0,40}\bfor (?:him|her|them)\b', '(?i)\binstruct\w*|\bdirect(?:ed|ing|ion|ive|s)?\b|\border(?:ed|ing|s)?\b', '(?i)\bfill(?:ed|ing|s)?\b', '(?i)\brevis\w*|\bedit\w*|\bmodif\w*|\balter\w*|\bamend\w*|\bchang\w*', '(?i)\bsupplement\w*|\benhanc\w*|\bimprov\w*|\bembellish\w*', '(?i)\bwrit(?:e|es|ing|ten)\b|\bwrote\b|\bprepar\w*|\bdraft\w*']}
+
+evidence:
+  - id: E1
+    label: Key statements from two call transcripts (send it via KakaoTalk · take care of it · make it sound natural)
+    reach: REACHABLE
+    path: '(?i)CallRec[_\s]*(?:Team[_\s]*Leader[_\s]*)?Jang[\s_-]*Guk[\s_-]*ju(?:[_\s]*Team[_\s]*Leader)?[_\s]*(?:123123121|15166513213)\.(?:txt|m4a)'
+    text: '(?i)send\s+(?:it\s+|them\s+|this\s+)?(?:to\s+you\s+)?(?:on|via|through|by)\s+Kakao[\s-]*Talk|(?:take\s+care\s+of|handle)\s+(?:it|this|that)\s+(?:properly|well|nicely)|fill\s+(?:in|out)\s+the\s+r[eé]sum[eé]|filling\s+(?:it\s+)?in|as\s+natural(?:ly)?\s+as\s+possible|go(?:ing)?\s+(?:out\s+)?(?:for\s+a\s+|to\s+)?smok\w*|\bcigarette\b'
+
+  - id: E2
+    label: Original resume received via KakaoTalk
+    reach: REACHABLE
+    path: '(?i)Choi[\s_-]*Ki[\s_-]*young[_\s]*Resume\.docx'
+    need_place: true
+    text: '(?i)Choi,\s*Ki-young|Bongcheon\s+University|Key97121'
+
+  - id: E3
+    label: Differences between the original and revised versions
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Choi[\s_-]*Ki[\s_-]*young[_\s]*Resume\s*[-–]\s*(?:Final|Copy)'
+    text: '(?i)BRAND\s*CHALLENGE|Marketing\s+(?:Competition|Contest)|born\s+(?:as\s+)?(?:the\s+)?(?:eldest|first)\s+son|Hangbok\s+Marketing|Hangbok\s+Home\s+Shopping'
+
+  - id: E4
+    label: Kang Su-min (HB_sumin) is listed as the last editor of the revised version
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Choi[\s_-]*Ki[\s_-]*young[_\s]*Resume\s*[-–]\s*(?:Final|Copy)'
+    need_place: true
+    text: '(?i)(?<![\\/\w-])HB[_\s]*sumin(?![\\/\w])'
+
+  - id: E5
+    label: Employee Hiring Regulations clause requiring a handwritten resume
+    reach: REACHABLE_AFTER_BINARY_PARSE
+    path: '(?i)Employee[\s_-]*Hiring[\s_-]*Regulations?[\\/][12]\.(?:doc|hwp)'
+    text: '(?i)Application\s+Form[^A-Za-z]{0,8}(?:1|one)\s+cop(?:y|ies)[^A-Za-z]{0,8}Handwritten\s+R[eé]sum[eé]|Handwritten\s+R[eé]sum[eé][^A-Za-z]{0,8}(?:1|one)\s+cop(?:y|ies)[^A-Za-z]{0,8}business[\s-]*card[\s-]*size'
+
+hypotheses:
+  - id: h1
+    label: Jang Guk-ju instructed someone to prepare the resume
+    conditions:
+      - {id: a, text: 'The person who requested or gave the instruction was Jang Guk-ju. A request in a call transcript or file identified as belonging to Jang Guk-ju (the team leader) is also treated as a request from Jang Guk-ju'}
+      - {id: b, text: The request or instruction was to fill in or revise a resume}
+    supported_by: [E1]
+    criteria:
+      - {id: instructor, anchor: true, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b']}
+      - {id: instruction,   any: ['(?i)\binstruct\w*', '(?i)\bdirect(?:ed|ing|ion|ive|s)?\b', '(?i)\border(?:ed|ing|s)?\b', '(?i)\brequest\w*|\bask(?:ed|s|ing)?\b', '(?i)\btold\b', '(?i)\bdemand\w*|\brequir\w*|\burg\w*', '(?i)\bfill\w*\s+in\b']}
+      - {id: document,   any: ['(?i)\bresum[eé]s?\b', '(?i)\bCV\b']}
+
+  - id: h2
+    label: The original resume was sent to Kang Su-min by Jang Guk-ju
+    conditions:
+      - {id: a, text: Choi Ki-young’s original resume was sent to Kang Su-min, who received it}
+      - {id: b, text: It was sent via KakaoTalk}
+    supported_by: [E1, E2]
+    criteria:
+      - {id: target, anchor: true, any: ['(?i)\bChoi[\s,-]*Ki[\s-]*young\b|\bKi[\s-]*young[\s,-]*Choi\b']}
+      - {id: medium, any: ['(?i)\bkakao[\s-]*talk\b', '(?i)\bkakao\b']}
+      - {id: delivery, any: ['(?i)\bforward\w*|\bdeliver\w*', '(?i)\breceiv\w*', '(?i)\b(?:sent|send|sends|sending)\b', '(?i)\bshar(?:e|ed|es|ing)\b', '(?i)\btransmit\w*']}
+
+  - id: h3
+    label: Kang Su-min actually revised the resume
+    conditions:
+      - {id: a, text: Choi Ki-young’s final (revised) resume contains information that was not in the original}
+      - {id: b, text: 'Kang Su-min revised the resume. This also includes saying that the revised document’s properties identify Kang Su-min (HB_sumin) as its last editor'}
+    supported_by: [E2, E3, E4]
+    criteria:
+      - {id: actor, anchor: true, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+      - {id: target,   anchor: true, any: ['(?i)\bChoi[\s,-]*Ki[\s-]*young\b|\bKi[\s-]*young[\s,-]*Choi\b']}
+      - {id: action,   any: ['(?i)\brevis\w*|\bedit\w*|\bmodif\w*|\balter\w*|\bamend\w*|\bchang\w*', '(?i)\bfinal(?:ized|ised)?\s+(?:version|copy|draft)\b|\bfinal\s+resume\b', '(?i)\badd(?:ed|s|ing|ition\w*)?\b', '(?i)\bghost-?writ\w*|\bghostwrote\b', '(?i)\bsupplement\w*|\benhanc\w*|\bimprov\w*|\bembellish\w*', '(?i)\bfill(?:ed|ing|s)?\b', '(?i)\bwrit(?:e|es|ing|ten)\b|\bwrote\b|\bprepar\w*|\bdraft\w*']}
+
+aux:
+  - id: x1
+    label: Violation of the company’s hiring regulations
+    conditions:
+      - {id: a, text: The company’s hiring regulations require a handwritten resume}
+      - {id: b, text: This case violated those regulations}
+    supported_by: [E5]
+    criteria:
+      - {id: regulation, any: ['(?i)\bemployee[\s-]*hiring[\s-]*regulation\w*', '(?i)\bhiring[\s-]*(?:regulation|rule|polic)\w*', '(?i)\b(?:company|internal)[\s-]*(?:regulation|rule|polic)\w*']}
+      - {id: clause, any: ['(?i)\bhand-?writ\w*', '(?i)\bviolat\w*|\bbreach\w*', '(?i)\bcontrary\b|\bconflict\w*|\binconsistent\b']}

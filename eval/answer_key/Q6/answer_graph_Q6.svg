@@ -1,0 +1,70 @@
+<svg viewBox="0 0 1008 388" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Answer structure for Question 6 - evidence, claim, and conclusion layers" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6B7887"/></marker><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8A6209"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7E5BB5"/></marker></defs>
+<path d="M314,58 C357,58 357,92 400,92" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,58 C357,58 357,160 400,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,126 C357,126 357,160 400,160" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,194 C357,194 357,228 400,228" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,262 C357,262 357,296 400,296" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M314,330 C357,330 357,296 400,296" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,92 C723,92 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,160 C723,160 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,228 C723,228 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<path d="M680,296 C723,296 723,194 766,194" fill="none" stroke="#D2D9E0" stroke-width="1.5" marker-end="url(#a)"/>
+<rect x="34" y="34" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="53" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E1</text>
+<text x="78" y="53" font-size="11.5" fill="#171C23">Cash and golf records</text>
+<text x="78" y="65" font-size="9.5" fill="#6B7887">Consolidated Document1.xlsx · Gu Min-su deposit</text>
+<text x="78" y="76" font-size="9.5" fill="#6B7887">KRW 5,000,000 · 2021.01.21 · golf outing planned</text>
+<text x="304" y="53" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="102" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="121" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E2</text>
+<text x="78" y="121" font-size="11.5" fill="#171C23">Gu Min-su is Suajaju's representative</text>
+<text x="78" y="133" font-size="9.5" fill="#6B7887">Suajaju Co., Ltd. · Representative Gu Min-su</text>
+<text x="78" y="144" font-size="9.5" fill="#6B7887">999-89-66166</text>
+<rect x="34" y="170" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="189" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E3</text>
+<text x="78" y="189" font-size="11.5" fill="#171C23">Ranking reversal</text>
+<text x="78" y="201" font-size="9.5" fill="#6B7887">Round 1: BugsQ 145, Suajaju 140</text>
+<text x="78" y="212" font-size="9.5" fill="#6B7887">Round 2: Suajaju 187 (BugsQ 184)</text>
+<text x="304" y="189" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="238" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="257" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E4</text>
+<text x="78" y="257" font-size="11.5" fill="#171C23">Criterion added, scores flipped</text>
+<text x="78" y="269" font-size="9.5" fill="#6B7887">'Delivery/Supply' added in the 2nd round</text>
+<text x="78" y="280" font-size="9.5" fill="#6B7887">Suajaju scored 47 points, BugsQ 39</text>
+<text x="304" y="257" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="34" y="306" width="280" height="48" rx="7" fill="var(--ev-bg,#E4F1EF)" stroke="var(--ev,#0B6E63)" stroke-width="1.5"/>
+<text x="46" y="325" font-family="monospace" font-size="10" font-weight="600" fill="var(--ev,#0B6E63)">E5</text>
+<text x="78" y="325" font-size="11.5" fill="#171C23">File metadata timestamps</text>
+<text x="78" y="337" font-size="9.5" fill="#6B7887">Round 1 file: 2/1 11:16 · money log: 2/1 16:54</text>
+<text x="78" y="348" font-size="9.5" fill="#6B7887">Round 2 file: 2/2 14:09</text>
+<text x="304" y="325" text-anchor="end" font-size="9" fill="#8A97A5">Unzip first</text>
+<rect x="400" y="68" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="87" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C1</text>
+<text x="444" y="87" font-size="11.5" fill="#171C23">Lee Ji-su accepted money and hospitality</text>
+<text x="444" y="102" font-size="9.5" fill="#6B7887">From Gu Min-su · hospitality evidence</text>
+<rect x="400" y="136" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="155" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C2</text>
+<text x="444" y="155" font-size="11.5" fill="#171C23">The money came from a bidding company</text>
+<text x="444" y="170" font-size="9.5" fill="#6B7887">Where hospitality and bidding evidence meet</text>
+<rect x="400" y="204" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="223" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C3</text>
+<text x="444" y="223" font-size="11.5" fill="#171C23">Evaluation changed in Suajaju's favor</text>
+<text x="444" y="238" font-size="9.5" fill="#6B7887">Bidding evidence</text>
+<rect x="400" y="272" width="280" height="48" rx="7" fill="var(--cl-bg,#E5ECF8)" stroke="var(--cl,#2B549C)" stroke-width="1.5"/>
+<text x="412" y="291" font-family="monospace" font-size="10" font-weight="600" fill="var(--cl,#2B549C)">C4</text>
+<text x="444" y="291" font-size="11.5" fill="#171C23">A manipulation, not a fair re-evaluation</text>
+<text x="444" y="306" font-size="9.5" fill="#6B7887">Established by either E4 or E5</text>
+<rect x="766" y="122" width="208" height="144" rx="9" fill="var(--ans-bg,#F8E6ED)" stroke="var(--ans,#9E2B58)" stroke-width="1.8"/>
+<text x="870" y="142" text-anchor="middle" font-family="monospace" font-size="9.5" fill="var(--ans,#9E2B58)">Conclusion A</text>
+<text x="870" y="164" text-anchor="middle" font-size="11.5" fill="#171C23">Manager Lee Ji-su accepted money</text>
+<text x="870" y="182" text-anchor="middle" font-size="11.5" fill="#171C23">and hospitality from Gu Min-su and</text>
+<text x="870" y="200" text-anchor="middle" font-size="11.5" fill="#171C23">changed the evaluation in</text>
+<text x="870" y="218" text-anchor="middle" font-size="11.5" fill="#171C23">Suajaju's favor</text>
+<line x1="780" y1="230" x2="960" y2="230" stroke="var(--ans,#9E2B58)" stroke-width="1" opacity=".3"/>
+<text x="870" y="246" text-anchor="middle" font-size="9.5" fill="#6B7887">Full credit requires tying C1, C2,</text>
+<text x="870" y="259" text-anchor="middle" font-size="9.5" fill="#6B7887">and C3 together</text>
+<text x="34" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Evidence E</text>
+<text x="400" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Claim C</text>
+<text x="766" y="22" font-family="monospace" font-size="9.5" fill="#6B7887">Conclusion A</text>
+</svg>

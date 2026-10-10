@@ -1,0 +1,92 @@
+problem: 5
+title: Transaction After Preparing a Quote In-House
+ruleset_version: "2026-10-01.1"
+ignore: 'SKILL\.md|[\\/]tmp[\\/]|\.claude|evidence_exports'
+
+aliases:
+  Kang Su-min: [Kang Su-min, Assistant Manager Kang Su-min, HB_sumin]
+  Jang Guk-ju: [Jang Guk-ju, Team Leader Jang Guk-ju, Team Leader Jang]
+
+answer:
+  text: 'Assistant Manager Kang Su-min prepared a quote for Cocomade herself, and a transaction was carried out at the quoted price'
+  note: 'Full credit requires stating both that she prepared the quote (h1) and that a transaction actually took place (h2)'
+  criteria:
+    - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin']}
+    - {id: vendor,   any: ['(?i)\bCocomade\b']}
+    - {id: document,   any: ['(?i)\bquot(?:e|ation)s?\b', '(?i)\bestimate\w*|\bquot\w*']}
+    - {id: action,   any: ['(?i)\b(?:herself|himself|personally|directly)\b[^.]{0,40}\b(?:prepar|writ|creat|fill|draft)\w*|\b(?:prepar|writ|creat|fill|draft)\w*[^.]{0,40}\b(?:herself|himself|personally|directly)\b', '(?i)\bon (?:his|her|their) behalf\b|\bin place of\b|\binstead of\b|\bghost-?writ\w*', '(?i)\bwrit(?:e|es|ing|ten)\b|\bwrote\b|\bprepar\w*|\bdraft\w*', '(?i)\bcreat\w*|\bmade\b|\bmak(?:e|es|ing)\b|\bproduc\w*|\bgenerat\w*', '(?i)\bfill(?:ed|ing|s)?\b', '(?i)\benter(?:ed|s|ing)?\b|\binput\w*|\btyp(?:ed|ing)\b|\bkey(?:ed)?[\s-]*in\b']}
+    - {id: transaction,   any: ['(?i)\btransaction\s+statement\w*', '(?i)\bstatement\w*|\binvoice\w*', '(?i)\bactual\s+(?:transaction|trade|purchase)\w*|\btransaction\s+(?:actually\s+)?(?:took\s+place|occurred|was\s+(?:completed|carried\s+out|made))\b', '3,?355,?000', '3,?050,?000']}
+
+evidence:
+  - id: E1
+    label: Amounts entered on a blank quote template
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Cocomade[_\s]*v2\.xlsx'
+    need_place: true
+    text: '(?i)3,355,000|\bKRW\D{0,20}3355000|\bonly\D{0,10}3355000|gold[\s-]*long[\s-]*zipper|antique[\s-]*zipper[\s-]*pull'
+
+  - id: E2
+    label: The document was backdated
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Cocomade[_\s]*v2\.xlsx'
+    text: '(?i)\bJan(?:uary)?\.?\s*13(?:th)?\D{0,12}2021|2021\D{0,12}0?1\D{0,12}13\b|13(?:th)?\s+(?:of\s+)?Jan(?:uary)?\D{0,12}2021'
+
+  - id: E3
+    label: Transaction statement reflects the quoted amount (with an image of the company seal)
+    reach: REACHABLE
+    path: '(?i)Transaction[_\s]*Statement[_\s]*1\.pdf'
+    text: '3,?050,?000'
+
+  - id: E4
+    label: An image of the supplier’s corporate seal is embedded
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Cocomade[_\s]*v[12]\.xlsx'
+    need_place: true
+    text: 'image1\.png'
+
+  - id: E5
+    label: Quote dispatch mentioned on a call
+    reach: REACHABLE
+    path: '(?i)CallRec[_\s]*(?:Team[_\s]*Leader[_\s]*)?Jang[\s_-]*Guk[\s_-]*ju(?:[_\s]*Team[_\s]*Leader)?[_\s]*5674563\.(?:txt|m4a)'
+    text: '(?i)quote\s+(?:that\s+)?I\s+(?:had\s+)?(?:mentioned|talked\s+about|told\s+you\s+about)|(?:already\s+)?(?:sent|send)\s+(?:it\s+)?to\s+the\s+(?:vendor|supplier|company)'
+
+  - id: E6
+    label: Kang Su-min is listed as the last editor of Cocomade v2
+    reach: REACHABLE_AFTER_UNZIP
+    path: '(?i)Cocomade[_\s]*v2\.xlsx'
+    text: '(?i)(?:last_?modified_?by|modifier)\W{0,8}Kang[\s-]*Su[\s-]*min|[''"]Cocomade[''"]\W{1,6}[''"]Kang[\s-]*Su[\s-]*min[''"]'
+
+hypotheses:
+  - id: h1
+    label: A purchasing team employee prepared the quote herself
+    conditions:
+      - {id: a, text: 'The person who prepared the quote was a purchasing team employee (Assistant Manager Kang Su-min). It also counts if the response identifies only the employee as “a purchasing team employee,” without naming her. This includes saying that she filled in the item details and prices on Cocomade’s blank template (v1) to create v2, or stating as fact that Kang Su-min is listed as the last editor of v2'}
+      - {id: b, text: The quote was issued in the name of Cocomade, a supplier. Quotes from other suppliers, including Samsaek Fabric, Maba Leather, Snap Jeongyongsa, and Speed Sewing House, do not count}
+    supported_by: [E1, E2, E4, E5, E6]
+    criteria:
+      - {id: actor, any: ['(?i)\bKang[\s-]*Su[\s-]*min\b|\bSu[\s-]*min[\s-]*Kang\b', '(?i)HB[_\s]*sumin', '(?i)\bPurchasing\s+(?:Team|Department)\b|\bpurchasing\s+(?:employee|staff)\b']}
+      - {id: action,   anchor: true, any: ['(?i)\b(?:herself|himself|personally|directly)\b[^.]{0,40}\b(?:prepar|writ|creat|fill|draft)\w*|\b(?:prepar|writ|creat|fill|draft)\w*[^.]{0,40}\b(?:herself|himself|personally|directly)\b', '(?i)\bon (?:his|her|their) behalf\b|\bin place of\b|\binstead of\b|\bghost-?writ\w*', '(?i)\bwrit(?:e|es|ing|ten)\b|\bwrote\b|\bprepar\w*|\bdraft\w*', '(?i)\bcreat\w*|\bmade\b|\bmak(?:e|es|ing)\b|\bproduc\w*|\bgenerat\w*', '(?i)\bfill(?:ed|ing|s)?\b', '(?i)\benter(?:ed|s|ing)?\b|\binput\w*|\btyp(?:ed|ing)\b|\bkey(?:ed)?[\s-]*in\b']}
+      - {id: document,   anchor: true, any: ['(?i)\bquot(?:e|ation)s?\b', '(?i)\bestimate\w*|\bquot\w*']}
+      - {id: vendor,   any: ['(?i)\bCocomade\b']}
+
+  - id: h2
+    label: A transaction was carried out based on that quote
+    conditions:
+      - {id: a, text: A transaction with Cocomade took place, as shown by a transaction statement or delivery}
+      - {id: b, text: 'The transaction was based on the quote described above. This includes saying that the items and amounts on the transaction statement match the quote (KRW 3,050,000 before VAT; KRW 3,355,000 including VAT), or that the transaction was carried out at the quoted prices'}
+    supported_by: [E3]
+    criteria:
+      - {id: transaction, anchor: true, any: ['(?i)\btransaction\s+statement\w*', '(?i)\bstatement\w*|\binvoice\w*', '(?i)\bactual\s+(?:transaction|trade|purchase)\w*|\btransaction\s+(?:actually\s+)?(?:took\s+place|occurred|was\s+(?:completed|carried\s+out|made))\b', '(?i)\bdeliver\w*', '(?i)\bpurchase\s+order\w*|\bplaced\s+(?:an\s+)?order\b|\border(?:ed|s)?\b']}
+      - {id: amount, any: ['3,?355,?000', '3,?050,?000', '(?i)\btotal\w*|\bsum\b']}
+      - {id: vendor, any: ['(?i)\bCocomade\b']}
+
+aux:
+  - id: x1
+    label: Jang Guk-ju gave instructions
+    conditions:
+      - {id: a, text: Team Leader Jang Guk-ju instructed or pressed someone to prepare or send the quote, or checked on its progress}
+      - {id: b, text: Kang Su-min was the person who received the instruction or follow-up}
+    supported_by: [E5]
+    criteria:
+      - {id: instructor, any: ['(?i)\bJang[\s-]*Guk[\s-]*ju\b|\bGuk[\s-]*ju[\s-]*Jang\b', '(?i)\bTeam[\s-]*Leader\b']}
+      - {id: instruction,   any: ['(?i)\binstruct\w*|\bdirect(?:ed|ing|ion|ive|s)?\b|\border(?:ed|ing|s)?\b', '(?i)\bpress(?:ed|ing|ure)?\b|\burg\w*|\bprod\w*|\bnag\w*|\bhurr\w*|\bchas\w*', '(?i)\btold\b', '(?i)\bask(?:ed|ing|s)?\b|\binquir\w*|\bcheck(?:ed|ing)?\s+(?:on|in)\b', '(?i)\bconfirm\w*|\bcheck\w*|\bfollow(?:ed|ing)?[\s-]*up\b', '(?i)\b(?:sent|send)\b']}
