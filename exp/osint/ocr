@@ -11,7 +11,6 @@ NONE = "No OCR result is available for this file"
 MSG = {
     "empty": "No text recognized",
     "unreadable": "Not readable as an image",
-    "text_layer": "This PDF has a text layer. Read it with pdftotext.",
 }
 
 if len(sys.argv) < 2 or sys.argv[1] in ("-h", "--help"):
